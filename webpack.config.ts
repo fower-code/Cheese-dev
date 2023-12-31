@@ -25,7 +25,7 @@ const config: webpack.Configuration = {
       extensions: [".ts", ".js"],
    },
 
-   entry: "./src/core/index.ts",
+   entry: "./src/index.ts",
 
    output: {
       filename: "bundle.js",
