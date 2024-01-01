@@ -1,5 +1,7 @@
+import path from "node:path";
+
 import webpack from 'webpack';
-import path from "path";
+import {TsconfigPathsPlugin} from "tsconfig-paths-webpack-plugin";
 
 const config: webpack.Configuration = {
    devtool: false,
@@ -18,11 +20,13 @@ const config: webpack.Configuration = {
    },
 
    resolve: {
-      alias: {
-         "@core": path.resolve(__dirname, "src", "core"),
-      },
-
       extensions: [".ts", ".js"],
+
+      plugins: [
+         new TsconfigPathsPlugin({
+            extensions: [".ts"],
+         })
+      ],
    },
 
    entry: "./src/index.ts",
