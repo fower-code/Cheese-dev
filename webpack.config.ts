@@ -1,7 +1,17 @@
-import webpack from 'webpack';
-import path from "path";
+import path from "node:path";
 
-const config: webpack.Configuration = {
+import type {Configuration as WebpackConfiguration} from 'webpack';
+import type {Configuration as DevServerConfiguration} from "webpack-dev-server";
+import {TsconfigPathsPlugin} from "tsconfig-paths-webpack-plugin";
+
+const devServer: DevServerConfiguration = {
+   compress: true,
+   port: 9000,
+   http2: true,
+   hot: true,
+};
+
+const config: WebpackConfiguration = {
    devtool: false,
    mode: "production",
 
@@ -18,11 +28,13 @@ const config: webpack.Configuration = {
    },
 
    resolve: {
-      alias: {
-         "@core": path.resolve(__dirname, "src", "core"),
-      },
-
       extensions: [".ts", ".js"],
+
+      plugins: [
+         new TsconfigPathsPlugin({
+            extensions: [".ts"],
+         })
+      ],
    },
 
    entry: "./src/index.ts",
@@ -32,6 +44,8 @@ const config: webpack.Configuration = {
       path: path.resolve(__dirname, "dist"),
       clean: true,
    },
+
+   devServer,
 };
 
 module.exports = config;
