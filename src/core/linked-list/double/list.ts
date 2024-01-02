@@ -43,9 +43,9 @@ export class DoubleLinkedList<T> {
 
 	/**
 	 * @description Удаляет элемент из начала списка.
-	 * @return LLNode<T> | null
+	 * @return T | null
 	 */
-	public removeFirst() {
+	public removeFirst(): T | null {
 		if (this.#first === null) {
 			return null;
 		}
@@ -61,7 +61,7 @@ export class DoubleLinkedList<T> {
 		}
 
 		this.#first = this.#first.next;
-		return val;
+		return val.data;
 	}
 
 	/**
@@ -85,9 +85,9 @@ export class DoubleLinkedList<T> {
 
 	/**
 	 * @description Удаляет элемент из конца списка.
-	 * @return LLNode<T> | null
+	 * @return T | null
 	 */
-	public removeLast() {
+	public removeLast(): T | null {
 		if (this.#last === null) {
 			return null;
 		}
@@ -103,7 +103,7 @@ export class DoubleLinkedList<T> {
 		}
 
 		this.#last = this.#last.prev;
-		return val;
+		return val.data;
 	}
 
 	/**
