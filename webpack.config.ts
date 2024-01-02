@@ -6,6 +6,7 @@ import type {Configuration as DevServerConfiguration} from "webpack-dev-server";
 import {TsconfigPathsPlugin} from "tsconfig-paths-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
 const devServer: DevServerConfiguration = {
 	compress: true,
@@ -16,7 +17,7 @@ const devServer: DevServerConfiguration = {
 
 const config: WebpackConfiguration = {
 	devtool: false,
-	mode: "production",
+	mode: "development",
 
 	target: ["web", "es2020"],
 
@@ -37,6 +38,12 @@ const config: WebpackConfiguration = {
 				exclude: /node_modules/,
 			}
 		]
+	},
+
+	optimization: {
+		minimizer: [
+			new CssMinimizerPlugin(),
+		],
 	},
 
 	resolve: {

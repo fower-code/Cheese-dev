@@ -1,3 +1,3 @@
 import "@assets/style/main.css";
 
-console.log(10);
+console.log(20);
