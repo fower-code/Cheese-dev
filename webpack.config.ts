@@ -1,9 +1,17 @@
 import path from "node:path";
 
-import webpack from 'webpack';
+import type {Configuration as WebpackConfiguration} from 'webpack';
+import type {Configuration as DevServerConfiguration} from "webpack-dev-server";
 import {TsconfigPathsPlugin} from "tsconfig-paths-webpack-plugin";
 
-const config: webpack.Configuration = {
+const devServer: DevServerConfiguration = {
+   compress: true,
+   port: 9000,
+   http2: true,
+   hot: true,
+};
+
+const config: WebpackConfiguration = {
    devtool: false,
    mode: "production",
 
@@ -36,6 +44,8 @@ const config: webpack.Configuration = {
       path: path.resolve(__dirname, "dist"),
       clean: true,
    },
+
+   devServer,
 };
 
 module.exports = config;
