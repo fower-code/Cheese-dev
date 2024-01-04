@@ -2,7 +2,7 @@
  * @description Класс Result представляет обёртку над данными, которых могут содержать ошибку.
  */
 export default class Result<T> {
-    readonly #data: CanUndef<T>;
+    readonly #data: CanError<T>;
 
     /**
      * @description возвращает true, если данные содержат ошибку, и false в обратном случае.
@@ -11,7 +11,7 @@ export default class Result<T> {
         return this.#data instanceof Error;
     }
 
-    constructor(data: CanUndef<T>) {
+    constructor(data: CanError<T>) {
         this.#data = data;
     }
 
@@ -31,7 +31,8 @@ export default class Result<T> {
      * функция вернула. Но если данные isError, то возвращается Result(this.#data)
      * @param cb
      */
-    public then(cb: (data: CanUndef<T>) => unknown) {
+    public then(cb: (data: CanError<T>) => unknown) {
+		 console.log(this.#data);
         if (this.isError) {
             return new Result(this.#data);
         }
@@ -49,7 +50,7 @@ export default class Result<T> {
      * функция вернула, если есть ошибка. Но если данные не isError, то возвращается Result(this.#data).
      * @param cb
      */
-    public catch(cb: (data: CanUndef<T>) => unknown) {
+    public catch(cb: (data: CanError<T>) => unknown) {
         if (!this.isError) {
             return new Result(this.#data);
         }
