@@ -20,6 +20,10 @@ export default class CacheData<T> {
 		this.#strategy.set(key, value);
 	}
 
+	public remove(key: string): void {
+		this.#strategy.remove(key);
+	}
+
 	public clear(): void {
 		this.#strategy.clear();
 	}

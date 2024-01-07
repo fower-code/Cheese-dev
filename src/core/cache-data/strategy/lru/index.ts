@@ -41,6 +41,10 @@ export default class LRUCache<T> implements CacheStrategy<T> {
 		this.#queue.set(key, value);
 	}
 
+	public remove(key: string): void {
+		// todo
+	}
+
 	public clear(): void {
 		this.#queue.clear();
 	}

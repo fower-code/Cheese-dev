@@ -8,6 +8,8 @@ export interface CacheStrategy<T> {
 
 	set(key: string, value: T): void;
 
+	remove(key: string): void;
+
 	clear(): void;
 
 	isEmpty(): boolean;

@@ -22,6 +22,10 @@ export default class SimpleCache<T> implements CacheStrategy<T> {
 		this.#cacheMap.set(key, value);
 	}
 
+	public remove(key: string): void {
+		this.#cacheMap.delete(key);
+	}
+
 	public clear(): void {
 		this.#cacheMap.clear();
 	}
@@ -31,7 +35,6 @@ export default class SimpleCache<T> implements CacheStrategy<T> {
 	}
 
 	public isFull(): boolean {
-		// todo
 		return false;
 	}
 }
