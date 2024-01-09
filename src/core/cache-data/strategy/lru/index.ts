@@ -2,7 +2,7 @@ import type {CacheStrategy} from "@core/cache-data/strategy/interface";
 import type {LRUCacheOptions} from "@core/cache-data/strategy/lru/interface";
 
 /**
- * @description Класс простого LRU-кеширования.
+ * @description Класс LRU-кеширования.
  */
 export default class LRUCache<T> implements CacheStrategy<T> {
 	#queue: Map<string, T>;
@@ -10,8 +10,12 @@ export default class LRUCache<T> implements CacheStrategy<T> {
 	readonly #maxSize: number;
 
 	constructor(opts?: LRUCacheOptions) {
-		this.#queue = new Map([]);
+		if (opts?.maxSize <= 0) {
+			throw new RangeError("maxSize cache must be greater than 0");
+		}
+
 		this.#maxSize = opts?.maxSize ?? 10;
+		this.#queue = new Map([]);
 	}
 
 	public hasKey(key: string): boolean {
@@ -43,6 +47,7 @@ export default class LRUCache<T> implements CacheStrategy<T> {
 
 	public remove(key: string): void {
 		// todo
+		this.#queue.delete(key);
 	}
 
 	public clear(): void {
@@ -53,7 +58,7 @@ export default class LRUCache<T> implements CacheStrategy<T> {
 		return this.#queue.size === 0;
 	}
 
-	public isFull() {
+	public isFull(): boolean {
 		return this.#queue.size === this.#maxSize;
 	}
 }
