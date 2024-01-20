@@ -1,26 +1,26 @@
 {
-  "name": "cheese",
-  "version": "0.0.3",
-  "license": "MIT",
-  "packageManager": "yarn@4.0.2",
-  "scripts": {
-    "build": "npx webpack",
-    "server:dev": "npx webpack serve --config webpack.devserver.config.ts"
-  },
-  "devDependencies": {
-    "@types/webpack": "^5.28.5",
-    "css-loader": "^6.8.1",
-    "css-minimizer-webpack-plugin": "^5.0.1",
-    "html-webpack-plugin": "^5.6.0",
-    "mini-css-extract-plugin": "^2.7.6",
-    "style-loader": "^3.3.4",
-    "terser-webpack-plugin": "^5.3.10",
-    "ts-loader": "^9.5.1",
-    "ts-node": "^10.9.2",
-    "tsconfig-paths-webpack-plugin": "^4.1.0",
-    "typescript": "^5.3.3",
-    "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
-  }
+   "name": "cheese",
+   "version": "0.0.3",
+   "license": "MIT",
+   "packageManager": "yarn@4.0.2",
+   "scripts": {
+      "build:client": "npx webpack --config webpack.client.config.ts",
+      "server:dev": "npx webpack serve --config webpack.devserver.config.ts"
+   },
+   "devDependencies": {
+      "@types/webpack": "^5.28.5",
+      "css-loader": "^6.8.1",
+      "css-minimizer-webpack-plugin": "^5.0.1",
+      "html-webpack-plugin": "^5.6.0",
+      "mini-css-extract-plugin": "^2.7.6",
+      "style-loader": "^3.3.4",
+      "terser-webpack-plugin": "^5.3.10",
+      "ts-loader": "^9.5.1",
+      "ts-node": "^10.9.2",
+      "tsconfig-paths-webpack-plugin": "^4.1.0",
+      "typescript": "^5.3.3",
+      "webpack": "^5.89.0",
+      "webpack-cli": "^5.1.4",
+      "webpack-dev-server": "^4.15.1"
+   }
 }
