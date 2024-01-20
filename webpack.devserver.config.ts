@@ -1,12 +1,8 @@
-import path from "node:path";
-
 import type {Configuration as WebpackConfiguration} from 'webpack';
 import type {Configuration as DevServerConfiguration} from "webpack-dev-server";
 
 import {TsconfigPathsPlugin} from "tsconfig-paths-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
 const devServer: DevServerConfiguration = {
 	compress: true,
@@ -19,31 +15,35 @@ const config: WebpackConfiguration = {
 	devtool: false,
 	mode: "development",
 
-	target: ["web", "es2020"],
+	target: ["web", "es2023"],
+
+	entry: "./src/index.ts",
+
+	cache: {
+		type: 'filesystem',
+		allowCollectingMemory: true,
+	},
 
 	module: {
 		rules: [
 			{
 				test: /\.ts$/,
-				use: "ts-loader",
 				exclude: /node_modules/,
+				loader: "ts-loader",
+				options: {
+					transpileOnly: true,
+				}
 			},
 
 			{
 				test: /\.css$/,
-				use: [
-					MiniCssExtractPlugin.loader,
-					 "css-loader"
-				],
 				exclude: /node_modules/,
+				use: [
+					"style-loader",
+					"css-loader"
+				],
 			}
 		]
-	},
-
-	optimization: {
-		minimizer: [
-			new CssMinimizerPlugin(),
-		],
 	},
 
 	resolve: {
@@ -60,19 +60,7 @@ const config: WebpackConfiguration = {
 		new HtmlWebpackPlugin({
 			title: "Cheese development",
 		}),
-
-		new MiniCssExtractPlugin({
-			filename: "[name].css"
-		}),
 	],
-
-	entry: "./src/index.ts",
-
-	output: {
-		filename: "bundle.js",
-		path: path.resolve(__dirname, "dist"),
-		clean: true,
-	},
 
 	devServer,
 };
