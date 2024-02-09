@@ -87,24 +87,24 @@ export class DoubleLinkedList<T> {
 	 * @description Удаляет элемент из конца списка.
 	 * @return T | null
 	 */
-	public removeLast(): T | null {
-		if (this.#last === null) {
-			return null;
-		}
-
-		const
-			val = this.#first;
-
-		if (this.#last.prev === null) {
-			this.#first = null;
-
-		} else {
-			this.#last.prev.next = null;
-		}
-
-		this.#last = this.#last.prev;
-		return val.data;
-	}
+	// public removeLast(): T | null {
+	// 	if (this.#last === null) {
+	// 		return null;
+	// 	}
+	//
+	// 	const
+	// 		val = this.#first;
+	//
+	// 	if (this.#last.prev === null) {
+	// 		this.#first = null;
+	//
+	// 	} else {
+	// 		this.#last.prev.next = null;
+	// 	}
+	//
+	// 	this.#last = this.#last.prev;
+	// 	return val.data;
+	// }
 
 	/**
 	 * @description Возвращает true, если список пустой, и false в обратном случае
