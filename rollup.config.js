@@ -79,6 +79,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import alias from "@rollup/plugin-alias";
+import swc from "rollup-plugin-swc3";
 
 import pkg from './package.json' assert {type: 'json'};
 
@@ -118,8 +119,14 @@ export default {
 			ignoreGlobal: false,
 			sourceMap: false
 		}),
-		typescript({
-			tsconfig: "./tsconfig.rollup.json"
+		// typescript({
+		// 	tsconfig: "./tsconfig.rollup.json"
+		// }),
+		swc({
+			include: /\.[mc]?[jt]sx?$/,
+			exclude: /node_modules/,
+			tsconfig: 'tsconfig.rollup.json',
+			jsc: {}
 		}),
 		alias({
 			entries: [
