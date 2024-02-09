@@ -10,9 +10,8 @@
    "browser": "dist/how-long-till-lunch.umd.js",
    "packageManager": "yarn@4.0.2",
    "scripts": {
-      "build:rollup": "NODE_ENV=production rollup -c",
-      "build:rspack": "TS_NODE_PROJECT=\"tsconfig.rspack.json\" rspack",
-      "serve:rspack": "TS_NODE_PROJECT=\"tsconfig.rspack.json\" rspack serve"
+      "build": "NODE_ENV=production rollup -c",
+      "serve": "TS_NODE_PROJECT=\"tsconfig.rspack.json\" rspack serve"
    },
    "devDependencies": {
       "@rollup/plugin-alias": "^5.1.0",

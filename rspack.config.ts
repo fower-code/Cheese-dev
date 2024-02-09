@@ -16,8 +16,6 @@ const config = {
 	devtool: false,
 	mode: "development",
 
-	target: ["web", "es2022"],
-
 	entry: "./src/index.ts",
 
 	output: {
@@ -51,6 +49,11 @@ const config = {
 				test: /\.ts$/,
 				exclude: /node_modules/,
 				loader: 'builtin:swc-loader',
+				options: {
+					"jsc": {
+						"target": "esnext",
+					},
+				}
 			},
 		],
 	},
