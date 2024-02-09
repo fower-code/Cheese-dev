@@ -4,15 +4,14 @@
    "license": "ISC",
    "author": "code-fun42 <iosdsbb@gmail.com>",
    "keywords": [],
-   "type": "module",
    "types": "index.d.ts",
    "main": "dist/how-long-till-lunch.min.js",
    "module": "dist/how-long-till-lunch.esm.js",
    "browser": "dist/how-long-till-lunch.umd.js",
    "packageManager": "yarn@4.0.2",
    "scripts": {
-      "build:rollup": "NODE_ENV=production rollup -c",
-      "dev:rollup": "rollup -c -w"
+      "build": "NODE_ENV=production rollup -c",
+      "serve": "TS_NODE_PROJECT=\"tsconfig.rspack.json\" rspack serve"
    },
    "devDependencies": {
       "@rollup/plugin-alias": "^5.1.0",
@@ -22,6 +21,10 @@
       "@rollup/plugin-node-resolve": "^15.2.3",
       "@rollup/plugin-terser": "^0.4.4",
       "@rollup/plugin-typescript": "^11.1.6",
+      "@rspack/cli": "^0.5.4",
+      "@rspack/core": "^0.5.4",
+      "@types/node": "^20.11.17",
+      "html-webpack-plugin": "^5.6.0",
       "rollup": "^4.9.6",
       "ts-node": "^10.9.2",
       "tslib": "^2.6.2",

@@ -1,8 +1,7 @@
 {
    "compilerOptions": {
-      "target": "ES2015",
+      "target": "ESNext",
       "lib": [
-         "dom",
          "esnext"
       ],
       "skipLibCheck": true,
@@ -10,8 +9,8 @@
       "esModuleInterop": true,
       "strict": true,
       "forceConsistentCasingInFileNames": true,
-      "module": "esnext",
-      "moduleResolution": "node",
+      "module": "CommonJS",
+      "moduleResolution": "NodeNext",
       "resolveJsonModule": true,
       "isolatedModules": false,
       "noEmit": true,
@@ -28,8 +27,7 @@
       }
    },
    "include": [
-      "src/**/*",
-      "index.d.ts"
+      "rspack.config.ts"
    ],
    "exclude": [
       "node_modules"
