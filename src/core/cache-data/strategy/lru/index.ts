@@ -10,9 +10,10 @@ export default class LRUCache<T> implements CacheStrategy<T> {
 	readonly #maxSize: number;
 
 	constructor(opts?: LRUCacheOptions) {
-		if (opts?.maxSize <= 0) {
-			throw new RangeError("maxSize cache must be greater than 0");
-		}
+		// todo
+		// if (opts?.maxSize <= 0) {
+		// 	throw new RangeError("maxSize cache must be greater than 0");
+		// }
 
 		this.#maxSize = opts?.maxSize ?? 10;
 		this.#queue = new Map([]);
