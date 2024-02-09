@@ -1,6 +1,6 @@
 {
    "compilerOptions": {
-      "target": "ESNext",
+      "target": "ES2015",
       "lib": ["dom", "esnext"],
       "skipLibCheck": true,
       "allowSyntheticDefaultImports": true,
@@ -26,7 +26,6 @@
    },
    "include": [
       "src/**/*",
-      "tests/**/*",
       "index.d.ts"
    ],
    "exclude": ["node_modules"]

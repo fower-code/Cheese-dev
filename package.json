@@ -11,16 +11,17 @@
    "browser": "dist/how-long-till-lunch.umd.js",
    "packageManager": "yarn@4.0.2",
    "scripts": {
-      "build:webpack": "npx webpack --config webpack.client.config.ts",
-      "server:dev": "npx webpack serve --config webpack.devserver.config.ts",
       "build:rollup": "NODE_ENV=production rollup -c",
       "dev:rollup": "rollup -c -w"
    },
    "devDependencies": {
       "@rollup/plugin-alias": "^5.1.0",
       "@rollup/plugin-commonjs": "^25.0.7",
+      "@rollup/plugin-html": "^1.0.3",
       "@rollup/plugin-json": "^6.1.0",
       "@rollup/plugin-node-resolve": "^15.2.3",
+      "@rollup/plugin-swc": "^0.3.0",
+      "@rollup/plugin-terser": "^0.4.4",
       "@rollup/plugin-typescript": "^11.1.6",
       "@swc/core": "^1.4.0",
       "@types/ms": "^0.7.34",
