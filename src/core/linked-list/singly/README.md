@@ -1,11 +1,11 @@
-# @core/linked-list/singly
+# ~core/linked-list/singly
 
 Этот модуль предоставляет класс для одностороннего списка.
 
 ## Использование:
 
 ```typescript
-import {LinkedList} from "@core/linked-list/singly";
+import {LinkedList} from "~core/linked-list/singly";
 
 const list: LinkedList<number> = new LinkedList();
 list.insertFirst(30);
@@ -28,7 +28,7 @@ for (const val of list) {
 Добавляет элемент в начало списка:
 
 ```typescript
-import {LinkedList} from "@core/linked-list/singly";
+import {LinkedList} from "~core/linked-list/singly";
 
 const list: LinkedList<number> = new LinkedList();
 
@@ -40,7 +40,7 @@ list.insertFirst(10);
 Удаляет элемент из начала списка, при этом возвращает значение элемента:
 
 ```typescript
-import {LinkedList} from "@core/linked-list/singly";
+import {LinkedList} from "~core/linked-list/singly";
 
 const list: LinkedList<number> = new LinkedList();
 list.insertFirst(20);
@@ -54,7 +54,7 @@ console.log(list.removeFirst());
 Очищает список:
 
 ```typescript
-import {LinkedList} from "@core/linked-list/singly";
+import {LinkedList} from "~core/linked-list/singly";
 
 const list: LinkedList<number> = new LinkedList();
 
@@ -72,7 +72,7 @@ console.log(list.removeFirst());
 Возвращает true, если список пустой и false в обратном случае:
 
 ```typescript
-import {LinkedList} from "@core/linked-list/singly";
+import {LinkedList} from "~core/linked-list/singly";
 
 const list: LinkedList<number> = new LinkedList();
 

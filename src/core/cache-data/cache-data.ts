@@ -1,5 +1,5 @@
-import type {CacheOptions, CacheStrategy} from "@core/cache-data/interface";
-import DefaultStrategy from "@core/cache-data/strategy";
+import type {CacheOptions, CacheStrategy} from "~core/cache-data/interface";
+import DefaultStrategy from "~core/cache-data/strategy";
 
 export default class CacheData<T> {
 	#strategy: CacheStrategy<T>;

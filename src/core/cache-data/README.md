@@ -1,3 +1,3 @@
-# @core/cache-data
+# ~core/cache-data
 
 Данный модуль предоставляет API для кеширования.

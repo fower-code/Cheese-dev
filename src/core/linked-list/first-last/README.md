@@ -1,11 +1,11 @@
-# @core/linked-list/first-last
+# ~core/linked-list/first-last
 
 Этот модуль предоставляет класс для двустороннего списка.
 
 ## Использование:
 
 ```typescript
-import {FirstLastList} from "@core/linked-list/first-last";
+import {FirstLastList} from "~core/linked-list/first-last";
 
 const firstLastList = new FirstLastList();
 
@@ -33,7 +33,7 @@ for (const val of firstLastList) {
 Добавляет элемент в начало списка:
 
 ```typescript
-import {FirstLastList} from "@core/linked-list/first-last";
+import {FirstLastList} from "~core/linked-list/first-last";
 
 const firstLastList = new FirstLastList();
 
@@ -52,7 +52,7 @@ for (const val of firstLastList) {
 Удаляет элемент из начала списка, при этом возвращает значение элемента:
 
 ```typescript
-import {FirstLastList} from "@core/linked-list/first-last";
+import {FirstLastList} from "~core/linked-list/first-last";
 
 const firstLastList = new FirstLastList();
 
@@ -67,7 +67,7 @@ console.log(firstLastList.removeFirst());
 Вставляет элемент в конец списка:
 
 ```typescript
-import {FirstLastList} from "@core/linked-list/first-last";
+import {FirstLastList} from "~core/linked-list/first-last";
 
 const firstLastList = new FirstLastList();
 
@@ -86,7 +86,7 @@ for (const val of firstLastList) {
 Очищает список:
 
 ```typescript
-import {FirstLastList} from "@core/linked-list/first-last";
+import {FirstLastList} from "~core/linked-list/first-last";
 
 const firstLastList = new FirstLastList();
 
@@ -105,7 +105,7 @@ console.log(firstLastList.removeFirst());
 Возвращает true, если список пустой и false в обратном случае:
 
 ```typescript
-import {FirstLastList} from "@core/linked-list/first-last";
+import {FirstLastList} from "~core/linked-list/first-last";
 
 const firstLastList = new FirstLastList();
 

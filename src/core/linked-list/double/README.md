@@ -1,9 +1,9 @@
-# @core/linked-list/double
+# ~core/linked-list/double
 
 ## Использование:
 
 ```typescript
-import {DoubleLinkedList} from "@core/linked-list/double";
+import {DoubleLinkedList} from "~core/linked-list/double";
 
 const doubleList = new DoubleLinkedList();
 
@@ -29,7 +29,7 @@ for (const val of doubleList) {
 Добавляет элемент в начало списка:
 
 ```typescript
-import {DoubleLinkedList} from "@core/linked-list/double";
+import {DoubleLinkedList} from "~core/linked-list/double";
 
 const doubleList = new DoubleLinkedList();
 
@@ -48,7 +48,7 @@ for (const val of doubleList) {
 Удаляет элемент из начала списка, при этом возвращает значение элемента:
 
 ```typescript
-import {DoubleLinkedList} from "@core/linked-list/double";
+import {DoubleLinkedList} from "~core/linked-list/double";
 
 const doubleList = new DoubleLinkedList();
 
@@ -65,7 +65,7 @@ console.log(doubleList.removeFirst());
 Вставляет элемент в конец списка:
 
 ```typescript
-import {DoubleLinkedList} from "@core/linked-list/double";
+import {DoubleLinkedList} from "~core/linked-list/double";
 
 const doubleList = new DoubleLinkedList();
 
@@ -84,7 +84,7 @@ for (const val of doubleList) {
 Удаляет элемент из конца списка, при этом возвращает значение элемента:
 
 ```typescript
-import {DoubleLinkedList} from "@core/linked-list/double";
+import {DoubleLinkedList} from "~core/linked-list/double";
 
 const doubleList = new DoubleLinkedList();
 
@@ -101,7 +101,7 @@ console.log(doubleList.removeLast());
 Очищает список:
 
 ```typescript
-import {DoubleLinkedList} from "@core/linked-list/double";
+import {DoubleLinkedList} from "~core/linked-list/double";
 
 const doubleList = new DoubleLinkedList();
 
@@ -120,7 +120,7 @@ console.log(doubleList.removeLast());
 Возвращает true, если список пустой и false в обратном случае:
 
 ```typescript
-import {DoubleLinkedList} from "@core/linked-list/double";
+import {DoubleLinkedList} from "~core/linked-list/double";
 
 const doubleList = new DoubleLinkedList();
 

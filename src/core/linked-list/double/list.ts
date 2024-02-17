@@ -1,4 +1,4 @@
-import {DLNode} from "@core/linked-list/double/node";
+import {DLNode} from "~core/linked-list/double/node";
 
 /**
  * @description Класс двустороннего списка.
