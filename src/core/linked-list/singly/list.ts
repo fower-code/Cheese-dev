@@ -75,6 +75,29 @@ export default class LinkedList<T> {
 	}
 
 	/**
+	 * @description Разворачивает список.
+	 */
+	public reverse() {
+		if (this.isEmpty()) {
+			return;
+		}
+
+		let
+			prev: CanNull<LLNode<T>> = null,
+			current: CanNull<LLNode<T>> = this.firstNode,
+			next: CanNull<LLNode<T>> = null;
+
+		while (current !== null) {
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+
+		this.firstNode = prev;
+	}
+
+	/**
 	 * @description Возвращает true, если список пустой, и false в обратном случае
 	 * @return boolean
 	 */
