@@ -1,4 +1,4 @@
-# @core/err/option
+# ~core/err/option
 
 Option представляет обертку над данными, которых может не быть.
 

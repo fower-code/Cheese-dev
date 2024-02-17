@@ -1,4 +1,4 @@
-import {LoggerEngine} from "@core/logger/engines/interface";
+import {LoggerEngine} from "~core/logger/engines/interface";
 
 export default class ConsoleEngine implements LoggerEngine {
 	#getStyleConfig() {

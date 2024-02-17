@@ -1,11 +1,11 @@
-# @core/cache-data/strategy/simple
+# ~core/cache-data/strategy/simple
 
 Стратегия простого кеширования.
 
 ## Использование
 
 ```typescript
-import CacheData from "@core/cache-data";
+import CacheData from "~core/cache-data";
 
 const cacheData = new CacheData();
 
@@ -36,7 +36,7 @@ console.log(cacheData.isEmpty());
 Принимает ключ и возвращает значение:
 
 ```typescript
-import CacheData from "@core/cache-data";
+import CacheData from "~core/cache-data";
 
 const cacheData = new CacheData();
 
@@ -51,7 +51,7 @@ console.log(cacheData.get("a"));
 Возвращает true, если ключ есть в кеше:
 
 ```typescript
-import CacheData from "@core/cache-data";
+import CacheData from "~core/cache-data";
 
 const cacheData = new CacheData();
 
@@ -69,7 +69,7 @@ console.log(cacheData.hasKey("b"));
 Сохраняем значение в кеш по ключу:
 
 ```typescript
-import CacheData from "@core/cache-data";
+import CacheData from "~core/cache-data";
 
 const cacheData = new CacheData();
 
@@ -84,7 +84,7 @@ console.log(cacheData.hasKey("a"));
 Удаляет значение из кеша по ключу:
 
 ```typescript
-import CacheData from "@core/cache-data";
+import CacheData from "~core/cache-data";
 
 const cacheData = new CacheData();
 
@@ -104,7 +104,7 @@ console.log(cacheData.hasKey("a"));
 Полностью очищает кеш:
 
 ```typescript
-import CacheData from "@core/cache-data";
+import CacheData from "~core/cache-data";
 
 const cacheData = new CacheData();
 
@@ -124,7 +124,7 @@ console.log(cacheData.hasKey("a"));
 Возвращает true, если кеш пуст:
 
 ```typescript
-import CacheData from "@core/cache-data";
+import CacheData from "~core/cache-data";
 
 const cacheData = new CacheData();
 

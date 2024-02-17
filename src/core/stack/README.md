@@ -1,11 +1,11 @@
-# @core/stack
+# ~core/stack
 
 Этот модуль предоставляет класс для создания Стека.
 
 ## Использование:
 
 ```typescript
-import Stack from "@core/stack";
+import Stack from "~core/stack";
 
 const stack = new Stack();
 
@@ -24,7 +24,7 @@ console.log(stack.remove());
 Добавляет элемент в стек:
 
 ```typescript
-import Stack from "@core/stack";
+import Stack from "~core/stack";
 
 const stack = new Stack();
 
@@ -43,7 +43,7 @@ for (const el of stack) {
 Удаляет элемент из стека, при этом возвращает его значение:
 
 ```typescript
-import Stack from "@core/stack";
+import Stack from "~core/stack";
 
 const stack = new Stack();
 
@@ -59,7 +59,7 @@ console.log(stack.remove());
 Очищает стек:
 
 ```typescript
-import Stack from "@core/stack";
+import Stack from "~core/stack";
 
 const stack = new Stack();
 
@@ -78,7 +78,7 @@ console.log(stack.remove());
 Возвращает true, если стек пустой:
 
 ```typescript
-import Stack from "@core/stack";
+import Stack from "~core/stack";
 
 const stack = new Stack();
 

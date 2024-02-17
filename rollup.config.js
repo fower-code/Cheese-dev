@@ -45,8 +45,8 @@ module.exports = {
 		}),
 		alias({
 			entries: [
-				{find: '@core', replacement: 'src/core'},
-				{find: '@assets', replacement: 'assets'},
+				{find: '~core', replacement: 'src/core'},
+				{find: '~assets', replacement: 'assets'},
 			]
 		}),
 	],

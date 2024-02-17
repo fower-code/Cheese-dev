@@ -1,4 +1,4 @@
-import {FLNode} from "@core/linked-list/first-last/node";
+import {FLNode} from "~core/linked-list/first-last/node";
 
 /**
  * @description Класс двустороннего списка.

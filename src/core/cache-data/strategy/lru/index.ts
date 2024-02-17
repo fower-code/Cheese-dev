@@ -1,5 +1,5 @@
-import type {CacheStrategy} from "@core/cache-data/strategy/interface";
-import type {LRUCacheOptions} from "@core/cache-data/strategy/lru/interface";
+import type {CacheStrategy} from "~core/cache-data/strategy/interface";
+import type {LRUCacheOptions} from "~core/cache-data/strategy/lru/interface";
 
 /**
  * @description Класс LRU-кеширования.

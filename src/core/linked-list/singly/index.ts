@@ -1,1 +1,1 @@
-export {LinkedList} from '@core/linked-list/singly/list';
+export {LinkedList} from '~core/linked-list/singly/list';

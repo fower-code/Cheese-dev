@@ -18,10 +18,10 @@
       "declarationDir": "build",
       "rootDir": ".",
       "paths": {
-         "@core/*": [
+         "~core/*": [
             "./src/core/*"
          ],
-         "@assets/*": [
+         "~assets/*": [
             "./assets/*"
          ]
       }

@@ -1,4 +1,4 @@
-import {LLNode} from "@core/linked-list/singly/node";
+import {LLNode} from "~core/linked-list/singly/node";
 
 /**
  * @description Класс односвязного списка.
