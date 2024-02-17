@@ -15,15 +15,15 @@
 
 import {LinkedList} from "~core/linked-list";
 
-const list: LinkedList<number> = new LinkedList();
-list.insertFirst(30);
-list.insertFirst(20);
-list.insertFirst(10);
-list.insertFirst(0);
-list.removeFirst();
+const list: LinkedList<number> = new LinkedList([30, 20, 20, 10]);
 
+// 10, 20, 20, 30
 for (const val of list) {
 	console.log(val);
 }
 
-// 10, 20, 30
+// [10, 20, 20, 30 ]
+console.log([...list]);
+
+// Set (3) [10, 20, 30 ]
+console.log(new Set([...list]));
