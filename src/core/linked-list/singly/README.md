@@ -136,6 +136,33 @@ list.insertFirst(20);
 console.log(list.removeFirst());
 ```
 
+### reverse
+
+Разворачивает список:
+
+```typescript
+import {LinkedList} from "~core/linked-list";
+
+const list: LinkedList<number> = new LinkedList();
+
+list.insertFirst(30)
+list.insertFirst(20)
+list.insertFirst(10)
+
+// 10, 20, 30
+for (const val of list) {
+	console.log(val);
+}
+
+list.reverse();
+console.log('reverse:');
+
+// 30, 20, 10
+for (const val of list) {
+	console.log(val);
+}
+```
+
 ### clear
 
 Очищает список:
