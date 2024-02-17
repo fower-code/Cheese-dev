@@ -1,46 +1,76 @@
-import {LLNode} from "~core/linked-list/singly/node";
+import LLNode from "~core/linked-list/singly/node";
 
 /**
  * @description Класс односвязного списка.
  */
-export class LinkedList<T> {
-	#first: LLNode<T> | null;
+export default class LinkedList<T> {
+	/**
+	 * @description Возвращает первый узел списка.
+	 */
+	get first(): CanNull<T> {
+		return this.firstNode?.data ?? null;
+	}
 
-	constructor() {
-		this.#first = null;
+	/**
+	 * @description Возвращает длину списка.
+	 */
+	get length(): number {
+		return this.lengthList;
+	}
+
+	/**
+	 * @description Ссылка на первый элемент списка.
+	 * @protected
+	 */
+	protected firstNode: CanNull<LLNode<T>> = null;
+
+	/**
+	 * @description Длина списка.
+	 * @protected
+	 */
+	protected lengthList: number = 0;
+
+	constructor(iterable?: Iterable<T>) {
+		if (iterable) {
+			for (const el of iterable) {
+				this.insertFirst(el);
+			}
+		}
 	}
 
 	* [Symbol.iterator]() {
 		let
-			current: LLNode<T> | null = this.#first;
+			current: CanNull<LLNode<T>> = this.firstNode;
 
 		while (current) {
-			yield current;
+			yield current.data;
 			current = current.next;
 		}
 	}
 
 	/**
 	 * @description Добавляет элемент в начало списка.
-	 * @param item Новый элемент списка
+	 * @param {T} item Новый элемент списка
 	 */
 	public insertFirst(item: T): void {
 		const newNode: LLNode<T> = new LLNode(item);
-		newNode.next = this.#first;
-		this.#first = newNode;
+		this.lengthList++;
+		newNode.next = this.firstNode;
+		this.firstNode = newNode;
 	}
 
 	/**
 	 * @description Удаляет элемент из начала списка.
-	 * @return T | null
+	 * @return {T | null}
 	 */
 	public removeFirst(): T | null {
-		if (this.#first === null) {
+		if (this.firstNode === null) {
 			return null;
 		}
 
-		const val: LLNode<T> = this.#first;
-		this.#first = this.#first.next;
+		const val: LLNode<T> = this.firstNode;
+		this.lengthList--;
+		this.firstNode = this.firstNode.next;
 		return val.data;
 	}
 
@@ -49,13 +79,14 @@ export class LinkedList<T> {
 	 * @return boolean
 	 */
 	public isEmpty(): boolean {
-		return this.#first === null;
+		return this.firstNode === null;
 	}
 
 	/**
-	 * @description Очищает список
+	 * @description Очищает список.
 	 */
 	public clear(): void {
-		this.#first = null;
+		this.lengthList = 0;
+		this.firstNode = null;
 	}
-}
+};

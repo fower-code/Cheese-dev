@@ -1,7 +1,7 @@
 /**
  * @description Узел односвязного списка.
  */
-export class LLNode<T> {
+export default class LLNode<T> {
 	public next: LLNode<T> | null;
 	public data: T;
 
@@ -9,4 +9,4 @@ export class LLNode<T> {
 		this.next = next ?? null;
 		this.data = data;
 	}
-}
+};
