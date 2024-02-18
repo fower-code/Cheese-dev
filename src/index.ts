@@ -13,23 +13,23 @@
 // list.insertFirst(30);
 // console.log([...list]);
 
-import {LinkedList} from "~core/linked-list";
+import {FirstLastList} from "~core/linked-list";
 
-const list: LinkedList<number> = new LinkedList();
+const list = new FirstLastList();
 
-list.insertFirst(30)
-list.insertFirst(20)
-list.insertFirst(10)
+list.insertLast(30);
+list.insertFirst(20);
+list.insertFirst(10);
 
-// 10, 20, 30
-for (const val of list) {
-	console.log(val);
-}
+// 10
+console.log(list.first);
+// 30
+console.log(list.last);
 
 list.reverse();
 console.log('reverse:');
 
-// 30, 20, 10
-for (const val of list) {
-	console.log(val);
-}
+// 30
+console.log(list.first);
+// 10
+console.log(list.last);
