@@ -1,7 +1,7 @@
 /**
  * @description Узел двустороннего списка.
  */
-export class FLNode<T> {
+export default class FLNode<T> {
 	public next: FLNode<T> | null;
 	public data: T;
 
@@ -9,4 +9,4 @@ export class FLNode<T> {
 		this.next = next ?? null;
 		this.data = data;
 	}
-}
+};

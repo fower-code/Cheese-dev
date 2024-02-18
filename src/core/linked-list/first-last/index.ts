@@ -1,1 +1,1 @@
-export {FirstLastList} from '~core/linked-list/first-last/list';
+export {default} from '~core/linked-list/first-last/list';

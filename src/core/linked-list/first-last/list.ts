@@ -1,23 +1,62 @@
-import {FLNode} from "~core/linked-list/first-last/node";
+import FLNode from "~core/linked-list/first-last/node";
 
 /**
  * @description Класс двустороннего списка.
  */
-export class FirstLastList<T> {
-	#first: FLNode<T> | null;
-	#last: FLNode<T> | null;
+export default class FirstLastList<T> {
+	/**
+	 * @description Возвращает первый узел списка.
+	 */
+	get first(): CanNull<T> {
+		return this.firstNode?.data ?? null;
+	}
 
-	constructor() {
-		this.#first = null;
-		this.#last = null;
+	/**
+	 * @description Возвращает первый узел списка.
+	 */
+	get last(): CanNull<T> {
+		return this.lastNode?.data ?? null;
+	}
+
+	/**
+	 * @description Возвращает длину списка.
+	 */
+	get length(): number {
+		return this.lengthList;
+	}
+
+	/**
+	 * @description Ссылка на первый элемент списка.
+	 * @protected
+	 */
+	protected firstNode: CanNull<FLNode<T>> = null;
+
+	/**
+	 * @description Ссылка на последний элемент списка.
+	 * @protected
+	 */
+	protected lastNode: CanNull<FLNode<T>> = null;
+
+	/**
+	 * @description Длина списка.
+	 * @protected
+	 */
+	protected lengthList: number = 0;
+
+	constructor(iterable?: Iterable<T>) {
+		if (iterable) {
+			for (const el of iterable) {
+				this.insertFirst(el);
+			}
+		}
 	}
 
 	* [Symbol.iterator]() {
 		let
-			current: FLNode<T> | null = this.#first;
+			current: FLNode<T> | null = this.firstNode;
 
 		while (current) {
-			yield current;
+			yield current.data;
 			current = current.next;
 		}
 	}
@@ -30,12 +69,14 @@ export class FirstLastList<T> {
 		const
 			newNode: FLNode<T> = new FLNode(item);
 
-		if (this.#first === null) {
-			this.#last = newNode;
+		this.lengthList++;
+
+		if (this.firstNode === null) {
+			this.lastNode = newNode;
 		}
 
-		newNode.next = this.#first;
-		this.#first = newNode;
+		newNode.next = this.firstNode;
+		this.firstNode = newNode;
 	}
 
 	/**
@@ -43,16 +84,17 @@ export class FirstLastList<T> {
 	 * @return LLNode<T> | null
 	 */
 	public removeFirst(): T | null {
-		if (this.#first === null) {
+		if (this.firstNode === null) {
 			return null;
 		}
 
-		if (this.#first.next === null) {
-			this.#last = null;
+		if (this.firstNode.next === null) {
+			this.lastNode = null;
 		}
 
-		const val = this.#first;
-		this.#first = this.#first.next;
+		const val: FLNode<T> = this.firstNode;
+		this.lengthList--;
+		this.firstNode = this.firstNode.next;
 		return val.data;
 	}
 
@@ -64,14 +106,25 @@ export class FirstLastList<T> {
 		const
 			newNode: FLNode<T> = new FLNode(item);
 
-		if (this.#last === null) {
-			this.#first = newNode;
-			this.#last = newNode;
+		this.lengthList++;
+
+		if (this.lastNode === null) {
+			this.firstNode = newNode;
+			this.lastNode = newNode;
 			return;
 		}
 
-		this.#last.next = newNode;
-		this.#last = newNode;
+		this.lastNode.next = newNode;
+		this.lastNode = newNode;
+	}
+
+	/**
+	 * @description Разворачивает список.
+	 */
+	public reverse(){
+		if (this.isEmpty()) {
+			return;
+		}
 	}
 
 	/**
@@ -79,14 +132,15 @@ export class FirstLastList<T> {
 	 * @return boolean
 	 */
 	public isEmpty(): boolean {
-		return this.#first === null;
+		return this.firstNode === null && this.lastNode === null;
 	}
 
 	/**
-	 * @description Очищает список
+	 * @description Очищает список.
 	 */
 	public clear(): void {
-		this.#first = null;
-		this.#last = null;
+		this.firstNode = null;
+		this.lastNode = null;
+		this.lengthList = 0;
 	}
 }
