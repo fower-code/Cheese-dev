@@ -21,10 +21,15 @@ list.insertLast(30);
 list.insertFirst(20);
 list.insertFirst(10);
 
-// false
-console.log(list.isEmpty());
+// 10
+console.log(list.first);
+// 30
+console.log(list.last);
 
-list.clear();
+list.reverse();
+console.log('reverse:');
 
-// true
-console.log(list.isEmpty());
+// 30
+console.log(list.first);
+// 10
+console.log(list.last);

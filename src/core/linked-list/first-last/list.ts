@@ -53,7 +53,7 @@ export default class FirstLastList<T> {
 
 	* [Symbol.iterator]() {
 		let
-			current: FLNode<T> | null = this.firstNode;
+			current: CanNull<FLNode<T>> = this.firstNode;
 
 		while (current) {
 			yield current.data;
@@ -121,10 +121,24 @@ export default class FirstLastList<T> {
 	/**
 	 * @description Разворачивает список.
 	 */
-	public reverse(){
+	public reverse() {
 		if (this.isEmpty()) {
 			return;
 		}
+
+		let
+			prev: CanNull<FLNode<T>> = null,
+			next: CanNull<FLNode<T>> = null,
+			current: CanNull<FLNode<T>> = this.firstNode;
+
+		while (current !== null) {
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+
+		[this.lastNode, this.firstNode] = [this.firstNode, prev];
 	}
 
 	/**
