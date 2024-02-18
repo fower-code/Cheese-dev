@@ -15,7 +15,7 @@ const terser = require("@rollup/plugin-terser");
 const pkg = require("./package.json");
 
 module.exports = {
-	input: "src/index.ts",
+	input: "src/lib.ts",
 	output: [
 		{
 			file: pkg.main,

@@ -1,4 +1,4 @@
-import {FirstLastList} from "~core/linked-list/first-last";
+import {FirstLastList} from "~core/linked-list";
 
 /**
  * @description Класс структуры Stack.
