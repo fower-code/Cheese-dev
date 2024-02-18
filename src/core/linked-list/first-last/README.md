@@ -181,6 +181,33 @@ for (const val of list) {
 }
 ```
 
+### reverse
+
+Разворачивает список:
+
+```typescript
+import {FirstLastList} from "~core/linked-list";
+
+const list = new FirstLastList();
+
+list.insertLast(30);
+list.insertFirst(20);
+list.insertFirst(10);
+
+// 10
+console.log(list.first);
+// 30
+console.log(list.last);
+
+list.reverse();
+console.log('reverse:');
+
+// 30
+console.log(list.first);
+// 10
+console.log(list.last);
+```
+
 ### clear
 
 Очищает список:
