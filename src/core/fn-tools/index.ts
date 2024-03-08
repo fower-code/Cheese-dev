@@ -32,7 +32,6 @@ export function throttle(fn: Function, time: number) {
 
 	return function wrapper(this: unknown, ...args: unknown[]) {
 		lastArgs = args;
-		// console.log(args);
 
 		if (timeout == null) {
 			fn.apply(this, args);
@@ -40,8 +39,6 @@ export function throttle(fn: Function, time: number) {
 			timeout = setTimeout(() => {
 				timeout = null;
 
-				// console.log(lastArgs);
-				// console.log(args);
 				if (lastArgs !== args) {
 					wrapper.apply(this, lastArgs);
 				}

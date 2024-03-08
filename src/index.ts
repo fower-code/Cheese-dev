@@ -20,9 +20,9 @@ laughThrottle(10);
 laughThrottle(20);
 laughThrottle(30);
 
-// setTimeout(()=> {
-// 	laughThrottle(40);
-// }, 5000)
+setTimeout(()=> {
+	laughThrottle(30);
+}, 2000)
 
 
 
