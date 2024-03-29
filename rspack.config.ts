@@ -27,7 +27,7 @@ const config = {
 	devServer,
 
 	resolve: {
-		extensions: [".tsx", ".ts", ".jsx", ".js"],
+		extensions: [".ts", ".js"],
 
 		tsConfig: {
 			configFile: path.resolve(__dirname, 'tsconfig.json'),
