@@ -1,7 +1,5 @@
 import {Option} from "~core/err";
 
-// Данных нет
-// const data1 = new Option(Option.None);
 const data1 = new Option(null);
 
 console.log(data1.isNone); // true

@@ -62,4 +62,4 @@ export default class Result<T> {
             return new Result(err);
         }
     }
-}
+};
