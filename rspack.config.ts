@@ -50,7 +50,13 @@ const config = {
 				exclude: /node_modules/,
 				loader: 'builtin:swc-loader',
 				options: {
+					"sourceMap": true,
 					"jsc": {
+						"parser": {
+							"syntax": 'typescript',
+							"decorators": true,
+							"decoratorsBeforeExport": true,
+						},
 						"target": "esnext",
 					},
 				}
