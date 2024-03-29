@@ -8,12 +8,12 @@ export default class Option<T> {
 	 * @description возвращает true, если данных нет, и false в обратном случае.
 	 */
 	get isNone(): boolean {
-		return this.#data === Option.None;
+		return this.#data == Option.None;
 	}
 
-	readonly #data: CanUndef<T>;
+	readonly #data: Nullable<T>;
 
-	constructor(data: CanUndef<T>) {
+	constructor(data: Nullable<T>) {
 		this.#data = data;
 	}
 
@@ -33,7 +33,7 @@ export default class Option<T> {
 	 * функция вернула. Но если данные isNone, то возвращается Option(Option.None)
 	 * @param cb
 	 */
-	public then(cb: (data: CanUndef<T>) => unknown) {
+	public then(cb: (data: Nullable<T>) => unknown) {
 		if (this.isNone) {
 			return new Option(Option.None);
 		}

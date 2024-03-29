@@ -1,28 +1,19 @@
-import {debounce, throttle} from "~core/fn-tools";
+import {Option} from "~core/err";
 
-function laugh(int: number) {
-	console.log(int);
+// Данных нет
+// const data1 = new Option(Option.None);
+const data1 = new Option(null);
+
+console.log(data1.isNone); // true
+
+try {
+	data1.unwrap();
+
+} catch (err) {
+	console.log('Данных нет');
 }
 
-// const laughDebounce = debounce(laugh, 1);
-//
-// laughDebounce(10);
-// laughDebounce(20);
-// laughDebounce(30);
-// setTimeout(( )=> {
-// 	laughDebounce(40);
-//
-// },1000);
-
-const laughThrottle = throttle(laugh, 300);
-
-laughThrottle(10);
-laughThrottle(20);
-laughThrottle(30);
-
-setTimeout(()=> {
-	laughThrottle(30);
-}, 2000)
-
-
-
+data1
+	.then(console.log) // Не вызовется
+	.or(new Option('Данные есть'))
+	.then(console.log) // Данные есть
