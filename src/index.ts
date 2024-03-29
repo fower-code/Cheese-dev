@@ -1,35 +1,17 @@
-// import {LinkedList} from "~core/linked-list";
-//
-// // export * as HCCache from '~core/cache-data';
-// // export * as HCStack from '~core/stack';
-// // export * as HCLogger from '~core/logger';
-// // export * as HCLinkedList from '~core/linked-list';
-// // export * as HCErr from '~core/err';
-//
-// const list = new LinkedList();
-// // const list = new LinkedList([1,2,3]);
-// list.insertFirst(10);
-// list.insertFirst(20);
-// list.insertFirst(30);
-// console.log([...list]);
+import {Option} from "~core/err";
 
-import {FirstLastList} from "~core/linked-list";
+const data1 = new Option(null);
 
-const list = new FirstLastList();
+console.log(data1.isNone); // true
 
-list.insertLast(30);
-list.insertFirst(20);
-list.insertFirst(10);
+try {
+	data1.unwrap();
 
-// 10
-console.log(list.first);
-// 30
-console.log(list.last);
+} catch (err) {
+	console.log('Данных нет');
+}
 
-list.reverse();
-console.log('reverse:');
-
-// 30
-console.log(list.first);
-// 10
-console.log(list.last);
+data1
+	.then(console.log) // Не вызовется
+	.or(new Option('Данные есть'))
+	.then(console.log) // Данные есть
