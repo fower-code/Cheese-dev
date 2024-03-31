@@ -1,6 +1,7 @@
 import {Option} from "~core/err";
 
-const data1 = new Option(null);
+// Данных нет
+const data1 = new Option<string>(Option.None);
 
 console.log(data1.isNone); // true
 
@@ -12,6 +13,14 @@ try {
 }
 
 data1
-	.then(console.log) // Не вызовется
-	.or(new Option('Данные есть'))
-	.then(console.log) // Данные есть
+	.then((v) => {
+		// Не вызовется
+		console.log(v);
+		return v
+	})
+	.or(new Option("Данные есть"))
+	.then((v) => {
+		// Данные есть
+		console.log(v);
+		return v
+	})
