@@ -2,13 +2,13 @@
  * @description Класс Option представляет обертку над данными, которых может не быть.
  */
 export default class Option<T> {
-	static None: undefined;
+	static None = undefined;
 
 	/**
 	 * @description возвращает true, если данных нет, и false в обратном случае.
 	 */
 	get isNone(): boolean {
-		return this.#data == Option.None;
+		return this.#data == null;
 	}
 
 	readonly #data: Nullable<T>;
@@ -21,7 +21,7 @@ export default class Option<T> {
 	 * @description Возвращает данные, либо кидает исключение (данных нет).
 	 */
 	public unwrap() {
-		if (this.isNone) {
+		if (this.#data == null) {
 			throw new Error("Data in none");
 		}
 
@@ -33,16 +33,16 @@ export default class Option<T> {
 	 * функция вернула. Но если данные isNone, то возвращается Option(Option.None)
 	 * @param cb
 	 */
-	public then(cb: (data: Nullable<T>) => unknown) {
-		if (this.isNone) {
-			return new Option(Option.None);
+	public then(cb: (data: T) => Nullable<T>) {
+		if (this.#data == null) {
+			return new Option<T>(Option.None);
 		}
 
 		try {
-			return new Option(cb(this.#data));
+			return new Option<T>(cb(this.#data));
 
 		} catch (err) {
-			return new Option(Option.None);
+			return new Option<T>(Option.None);
 		}
 	}
 
@@ -52,11 +52,12 @@ export default class Option<T> {
 	 */
 	public or(option: Option<T>) {
 		if (this.isNone) {
-			if (option instanceof Option) {
+			// todo
+			// if (option instanceof Option) {
 				return option;
-			}
+			// }
 
-			return new Option(option);
+			// return new Option(option);
 		}
 
 		return this;
