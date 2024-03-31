@@ -8,7 +8,7 @@
    "main": "dist/bundle.min.js",
    "module": "dist/bundle.esm.js",
    "browser": "dist/bundle.umd.js",
-   "packageManager": "yarn@4.0.2",
+   "packageManager": "yarn@4.1.1",
    "scripts": {
       "build": "NODE_ENV=production rollup -c",
       "serve": "TS_NODE_PROJECT=\"tsconfig.rspack.json\" rspack serve"
