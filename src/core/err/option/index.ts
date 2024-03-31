@@ -36,7 +36,6 @@ export default class Option<T> {
 	public then(cb: (data: T) => Nullable<T>) {
 		if (this.#data == null) {
 			return new Option<T>(Option.None);
-			// return Option.None;
 		}
 
 		try {
@@ -44,7 +43,6 @@ export default class Option<T> {
 
 		} catch (err) {
 			return new Option<T>(Option.None);
-			// return Option.None;
 		}
 	}
 
@@ -52,15 +50,14 @@ export default class Option<T> {
 	 * @description Принимает новый объект Option и возвращает его, если данные None
 	 * @param option
 	 */
-	// public or<U>(option: Option<U>) {
 	public or(option: Option<T>) {
 		if (this.isNone) {
-			if (option instanceof Option) {
+			// todo
+			// if (option instanceof Option) {
 				return option;
-			}
+			// }
 
-			// return new Option<U>(option);
-			return new Option(option);
+			// return new Option(option);
 		}
 
 		return this;

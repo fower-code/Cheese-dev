@@ -16,11 +16,11 @@ data1
 	.then((v) => {
 		// Не вызовется
 		console.log(v);
-		return v
+		return v;
 	})
 	.or(new Option("Данные есть"))
 	.then((v) => {
 		// Данные есть
 		console.log(v);
-		return v
+		return v;
 	})

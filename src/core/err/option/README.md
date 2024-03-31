@@ -5,22 +5,33 @@ Option представляет обертку над данными, котор
 ## Использование:
 
 ```typescript
+import {Option} from "~core/err";
+
 // Данных нет
-const data1 = new Option(Option.None);
+const data1 = new Option<string>(Option.None);
 
 console.log(data1.isNone); // true
 
 try {
-    data1.unwrap();
+   data1.unwrap();
 
 } catch (err) {
-    console.log('Данных нет');
+   // выведется
+   console.log('Данных нет');
 }
 
 data1
-    .then(console.log) // Не вызовется
-    .or(new Option('Данные есть'))
-    .then(console.log) // Данные есть
+   .then((v) => {
+      // Не выведется
+      console.log(v);
+      return v;
+   })
+   .or(new Option("Данные есть"))
+   .then((v) => {
+      // Данные есть
+      console.log(v);
+      return v;
+   })
 ```
 
 ## API
