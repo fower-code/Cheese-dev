@@ -31,16 +31,22 @@ let
 	s1 = `\ntext1\ntext2\ntext3\ntext4`,
 	s2 = `abc`
 
+// let
+// 	l = lines(s2);
+//
+// console.log(l);
+
 let
-	l = lines(s2);
+	s3 = "i love rust";
 
-console.log(l);
+let
+	s4 = `В уроке 22 вкратце упоминалась функция splitOn, её версия для строк
+определена в модуле Data.List.Split. К счастью, версия для Text уже
+имеется в Data.Text и дополнительных импортов не нужно. Функция
+splitOn позволяет разделять текст по любой его подстроке.`
 
-// let
-// 	s3 = "i love rust";
-//
-// let
-// 	w = words(s3);
-//
-// console.log(w);
+let
+	w = words(s4);
+
+console.log(w);
 
