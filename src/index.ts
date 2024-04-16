@@ -1,26 +1,46 @@
-import {Option} from "~core/err";
+// import {Option} from "~core/err";
+//
+// // Данных нет
+// const data1 = new Option<string>(Option.None);
+//
+// console.log(data1.isNone); // true
+//
+// try {
+// 	data1.unwrap();
+//
+// } catch (err) {
+// 	console.log('Данных нет');
+// }
+//
+// data1
+// 	.then((v) => {
+// 		// Не вызовется
+// 		console.log(v);
+// 		return v;
+// 	})
+// 	.or(new Option("Данные есть"))
+// 	.then((v) => {
+// 		// Данные есть
+// 		console.log(v);
+// 		return v;
+// 	})
 
-// Данных нет
-const data1 = new Option<string>(Option.None);
+import {lines, words} from "~core/text";
 
-console.log(data1.isNone); // true
+let
+	s1 = `\ntext1\ntext2\ntext3\ntext4`,
+	s2 = `abc`
 
-try {
-	data1.unwrap();
+let
+	l = lines(s2);
 
-} catch (err) {
-	console.log('Данных нет');
-}
+console.log(l);
 
-data1
-	.then((v) => {
-		// Не вызовется
-		console.log(v);
-		return v;
-	})
-	.or(new Option("Данные есть"))
-	.then((v) => {
-		// Данные есть
-		console.log(v);
-		return v;
-	})
+// let
+// 	s3 = "i love rust";
+//
+// let
+// 	w = words(s3);
+//
+// console.log(w);
+
