@@ -12,6 +12,12 @@ export function wordsIter(s: string) {
 
 export function unWords(a:string[]) {
 	if (a.length === 0) {
-
+			return "";
 	}
+
+	return a.join(" ");
+}
+
+export function unWordsIter(s: string) {
+	// todo
 }
