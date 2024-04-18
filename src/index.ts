@@ -37,4 +37,3 @@ const iter1 = new Iter(a1);
 iter1.map((v) => v * 2).filter((v) => v > 2);
 // console.log([...iter1.filter((v) => v > 2)]);
 console.log([...iter1]);
-
