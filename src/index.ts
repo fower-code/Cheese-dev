@@ -25,7 +25,7 @@
 // 		return v;
 // 	})
 
-import {lines, words} from "~core/text";
+import {lines, unLines, unWords, words} from "~core/text";
 
 let
 	s1 = `\ntext1\ntext2\ntext3\ntext4`,
@@ -45,8 +45,15 @@ let
 имеется в Data.Text и дополнительных импортов не нужно. Функция
 splitOn позволяет разделять текст по любой его подстроке.`
 
+// let w = words(s4);
+// let s5 = unWords(w);
 let
-	w = words(s4);
+	l = lines(s4);
+let
+	s6 = unLines(l);
 
-console.log(w);
+console.log(l);
+
+console.log(s4);
+console.log(s6);
 
