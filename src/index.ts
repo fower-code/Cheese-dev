@@ -27,9 +27,14 @@
 
 import Iter from "~core/iter";
 
-const a1 = [1,2,3];
+const a1 = [1, 2, 3, 4, 5];
 
 const iter1 = new Iter(a1);
-iter1.map();
-console.log();
+// console.log([...iter1]);
+// iter1.map((v) => v * 2);
+// console.log([...iter1].filter((v) => v>2));
+// iter1.filter((v) => v > 2);
+iter1.map((v) => v * 2).filter((v) => v > 2);
+// console.log([...iter1.filter((v) => v > 2)]);
+console.log([...iter1]);
 
