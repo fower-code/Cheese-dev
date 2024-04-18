@@ -25,28 +25,11 @@
 // 		return v;
 // 	})
 
-import {lines, words} from "~core/text";
+import Iter from "~core/iter";
 
-let
-	s1 = `\ntext1\ntext2\ntext3\ntext4`,
-	s2 = `abc`
+const a1 = [1,2,3];
 
-// let
-// 	l = lines(s2);
-//
-// console.log(l);
-
-let
-	s3 = "i love rust";
-
-let
-	s4 = `В уроке 22 вкратце упоминалась функция splitOn, её версия для строк
-определена в модуле Data.List.Split. К счастью, версия для Text уже
-имеется в Data.Text и дополнительных импортов не нужно. Функция
-splitOn позволяет разделять текст по любой его подстроке.`
-
-let
-	w = words(s4);
-
-console.log(w);
+const iter1 = new Iter(a1);
+iter1.map();
+console.log();
 
