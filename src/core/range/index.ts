@@ -1,23 +1,26 @@
-export default function range(start: number, end: number) {
+export default function range(start: number, end?: number):IterableIterator<number> {
 	let
 		i = start;
 
-	// while (i < end) {
-	//
-	// }
-
 	return {
 		next() {
-			if (i <= end) {
+			if (end) {
+				if (i <= end) {
+					return {
+						value: i++,
+						done: false
+					}
+				}
+
 				return {
-					value: i++,
-					done: false
+					value: null,
+					done: true
 				}
 			}
 
 			return {
-				value: null,
-				done: true
+				value: i++,
+				done: false,
 			}
 		},
 
