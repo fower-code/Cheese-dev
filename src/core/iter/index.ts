@@ -1,11 +1,8 @@
 export default class Iter<T> {
 	readonly #iter: Iterable<T>
 
-	// #sIter: () => Iterator<T>
-
 	constructor(iter: Iterable<T>) {
 		this.#iter = iter;
-		// this.#sIter = iter[Symbol.iterator]
 	}
 
 	[Symbol.iterator](): Iterator<T> {
@@ -23,7 +20,7 @@ export default class Iter<T> {
 		const
 			iter = this.#iter[Symbol.iterator]();
 
-		const newIter: Iterator<T> = {
+		const newIter: IterableIterator<T> = {
 			next(): IteratorResult<T> {
 				const res = iter.next();
 
@@ -36,6 +33,10 @@ export default class Iter<T> {
 
 				return res;
 			},
+
+			[Symbol.iterator]() {
+				return this;
+			}
 		};
 
 		this.#iter[Symbol.iterator] = () => newIter;
@@ -46,7 +47,7 @@ export default class Iter<T> {
 		const
 			iter = this.#iter[Symbol.iterator]();
 
-		const newIter: Iterator<T> = {
+		const newIter: IterableIterator<T> = {
 			next(): IteratorResult<T> {
 				let res = iter.next();
 				let isConditions = fn(res.value);
@@ -57,6 +58,10 @@ export default class Iter<T> {
 				}
 
 				return res;
+			},
+
+			[Symbol.iterator]() {
+				return this;
 			}
 		};
 
@@ -64,17 +69,16 @@ export default class Iter<T> {
 		return this;
 	}
 
-	public enumerate<TReturn = [number, T]>() {
+	public enumerate() {
 		const
-			iter: Iterator<T> = this.#iter[Symbol.iterator]();
+			iter = this.#iter[Symbol.iterator]();
 
 		let
 			countIter = 1;
 
-		const newIter: IterableIterator<TReturn> = {
-			next(): IteratorResult<TReturn> {
+		const newIter: IterableIterator<[number, T]> = {
+			next():IteratorResult<[number, T]> {
 				let res = iter.next();
-				let isConditions = res.value
 
 				if (!res.done) {
 					return {
@@ -91,10 +95,37 @@ export default class Iter<T> {
 			}
 		};
 
-		// this.#iter[Symbol.iterator] = () => newIter;
-		// return this;
-		const nI = [...newIter];
-		// return new Iter<TReturn>(newIter);
+		return new Iter([...newIter]);
+	}
+
+	public take(count:number) {
+		const
+			iter = this.#iter[Symbol.iterator]();
+
+		let i = 0;
+
+		const newIter:IterableIterator<T> ={
+			next() {
+				let res = iter.next();
+
+				if (!res.done && i < count) {
+					i++;
+					return res
+				}
+
+				return {
+					value: null,
+					done: true,
+				};
+			},
+
+			[Symbol.iterator]() {
+				return this;
+			}
+		};
+
+		this.#iter[Symbol.iterator] = () => newIter;
+		return this;
 	}
 }
 
