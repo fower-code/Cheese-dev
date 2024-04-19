@@ -108,13 +108,24 @@ export default class Iter<T> {
 			next() {
 				let res = iter.next();
 
-				return res;
+				if (!res.done && i < count) {
+					i++;
+					return res
+				}
+
+				return {
+					value: null,
+					done: true,
+				};
 			},
 
 			[Symbol.iterator]() {
 				return this;
 			}
 		};
+
+		this.#iter[Symbol.iterator] = () => newIter;
+		return this;
 	}
 }
 

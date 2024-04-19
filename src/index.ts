@@ -34,7 +34,7 @@ const iter1 = new Iter(a1);
 // iter1.map((v) => v * 2);
 // console.log([...iter1].filter((v) => v>2));
 // iter1.filter((v) => v > 2);
-const iter2 = iter1.map((v) => v * 2).filter((v) => v > 2).enumerate();
+const iter2 = iter1.map((v) => v * 2).filter((v) => v > 2).enumerate().take(2);
 // console.log([...iter1.filter((v) => v > 2)]);
 console.log([...iter2]);
 
