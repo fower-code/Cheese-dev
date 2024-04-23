@@ -1,19 +1,10 @@
-import {linesIter} from "~core/text";
 import Iter from "~core/iter";
 
-let s1 = `Google активно использует Rust
-в своих проектах, таких как Fuchsia OS, который
-является операционной системой нового поколения
-компании. Rust позволяет создавать безопасный и
-эффективный код для операционной системы,
-обеспечивая высокую производительность и защиту
-от распространенных ошибок программирования.`;
+const a1 = [1, 2, 3, 4, 5];
 
-let s2 = `Google активно использует Rust
-в своих проектах, таких как Fuchsia OS, который
-является операционной системой нового поколения`;
+const iter1 = new Iter(a1);
+const iter2 = iter1.repeat(3);
+console.log([...iter2.take(7)]);
 
-let l1 = linesIter(s1);
-
-// console.log([...new Iter(l1).take(3)]);
-console.log([...l1]);
+// const iter3 = new Iter([]).zip(new Set([1, 2]), ['a', 'b', 'z'], '...');
+// console.log([...iter3]);
