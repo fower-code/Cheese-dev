@@ -128,6 +128,45 @@ export default class Iter<T> {
 		return this;
 	}
 
+	public repeat(count: number) {
+		const that = this;
+
+		let
+			iter = this.#iter[Symbol.iterator]();
+
+		let i = 1;
+
+		const newIter: IterableIterator<T> = {
+			next() {
+				let res = iter.next();
+
+				if (res.done && i >= count) {
+					return {
+						value: null,
+						done: true
+					};
+				}
+
+				if (res.done) {
+					i++;
+					iter = that.#iter[Symbol.iterator]();
+					res = iter.next();
+				}
+
+				return {
+					value: res.value,
+					done: false,
+				};
+			},
+
+			[Symbol.iterator]() {
+				return this;
+			}
+		};
+
+		return new Iter([...newIter])
+	}
+
 	public zip(...iterTuples: Iterable<unknown>[]) {
 		let
 			cursors: Iterator<any>[] = [];
@@ -166,7 +205,7 @@ export default class Iter<T> {
 			}
 		};
 
-		return newIter;
+		return new Iter([...newIter]);
 	}
 }
 
