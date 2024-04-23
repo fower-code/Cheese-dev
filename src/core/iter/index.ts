@@ -77,7 +77,7 @@ export default class Iter<T> {
 			countIter = 1;
 
 		const newIter: IterableIterator<[number, T]> = {
-			next():IteratorResult<[number, T]> {
+			next(): IteratorResult<[number, T]> {
 				let res = iter.next();
 
 				if (!res.done) {
@@ -98,13 +98,13 @@ export default class Iter<T> {
 		return new Iter([...newIter]);
 	}
 
-	public take(count:number) {
+	public take(count: number) {
 		const
 			iter = this.#iter[Symbol.iterator]();
 
 		let i = 0;
 
-		const newIter:IterableIterator<T> ={
+		const newIter: IterableIterator<T> = {
 			next() {
 				let res = iter.next();
 
@@ -130,7 +130,7 @@ export default class Iter<T> {
 
 	public zip(...iterTuples: Iterable<unknown>[]) {
 		let
-			cursors:Iterator<any>[] = [];
+			cursors: Iterator<any>[] = [];
 
 		for (const iterEl of iterTuples) {
 			const i = iterEl[Symbol.iterator]();
@@ -138,7 +138,7 @@ export default class Iter<T> {
 		}
 
 		const newIter: IterableIterator<unknown[]> = {
-			next():IteratorResult<unknown[]> {
+			next(): IteratorResult<unknown[]> {
 				let
 					val = [];
 
