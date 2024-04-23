@@ -127,5 +127,46 @@ export default class Iter<T> {
 		this.#iter[Symbol.iterator] = () => newIter;
 		return this;
 	}
+
+	public zip(...iterTuples: Iterable<unknown>[]) {
+		let
+			cursors:Iterator<any>[] = [];
+
+		for (const iterEl of iterTuples) {
+			const i = iterEl[Symbol.iterator]();
+			cursors.push(i);
+		}
+
+		const newIter: IterableIterator<unknown[]> = {
+			next():IteratorResult<unknown[]> {
+				let
+					val = [];
+
+				for (let i = 0; i < cursors.length; i++) {
+					const res = cursors[i].next();
+
+					if (res.done) {
+						return {
+							value: null,
+							done: true
+						};
+					}
+
+					val.push(res.value);
+				}
+
+				return {
+					value: val,
+					done: false
+				};
+			},
+
+			[Symbol.iterator]() {
+				return this;
+			}
+		};
+
+		return newIter;
+	}
 }
 
