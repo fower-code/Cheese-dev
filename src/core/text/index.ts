@@ -1,2 +1,2 @@
-export {lines, linesIter, unLines, unLinesIter} from "~core/text/lines";
-export {words, wordsIter, unWords, unWordsIter} from "~core/text/words";
+export {lines, linesIter, unLines} from "~core/text/lines";
+export {words, wordsIter, unWords} from "~core/text/words";

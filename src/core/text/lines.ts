@@ -7,35 +7,35 @@ export function lines(s: string) {
 }
 
 export function linesIter(s: string){
-	// todo поправить регулярку
-	let rExpr = /(?<n>(|\n))(?<l>[a-zA-Zа-яА-Я-,.!?$# ]+)\k<n>/g;
+	let
+		rExpr = /(?<l>[^\r\n]+)/g;
 
-	let res = rExpr.exec(s);
+	let
+		res = rExpr.exec(s);
 
 	return {
 		next() {
-			if (res == null) {
+			if (res?.groups?.l) {
+				const val = res.groups.l;
+
+				res = rExpr.exec(s);
+
 				return {
-					value: null,
-					done: true,
-				}
+					value: val,
+					done: false,
+				};
 			}
-
-			// todo поправить работу с groups. Возможно, нужно сделать модуль по работе с регулярками.
-			const val = res.groups?.l;
-
-			res = rExpr.exec(s);
 
 			return {
-				value: val,
-				done: false,
-			}
+				value: null,
+				done: true,
+			};
 		},
 
 		[Symbol.iterator]() {
 			return this;
 		}
-	}
+	};
 }
 
 export function unLines(a: string[]) {
@@ -44,8 +44,4 @@ export function unLines(a: string[]) {
 	}
 
 	return a.join("\n");
-}
-
-export function unLinesIter(s: string) {
-	// todo
 }
