@@ -7,17 +7,41 @@ export function words(s: string) {
 }
 
 export function wordsIter(s: string) {
-	// todo
+	let
+		rExpr = /(?<w>\b[\w-]+\b)/g;
+
+	let
+		res = rExpr.exec(s);
+
+	return {
+		next() {
+			if (res?.groups?.w) {
+				const val = res.groups.w;
+
+				res = rExpr.exec(s);
+
+				return {
+					value: val,
+					done: false,
+				};
+			}
+
+			return {
+				value: null,
+				done: true,
+			};
+		},
+
+		[Symbol.iterator]() {
+			return this;
+		}
+	};
 }
 
-export function unWords(a:string[]) {
+export function unWords(a: string[]) {
 	if (a.length === 0) {
-			return "";
+		return "";
 	}
 
 	return a.join(" ");
-}
-
-export function unWordsIter(s: string) {
-	// todo
 }
