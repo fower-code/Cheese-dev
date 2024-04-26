@@ -11,7 +11,24 @@ export default class Iter<T> {
 
 		return {
 			next(): IteratorResult<T> {
+				console.log("syncIter");
 				return iter.next();
+			}
+		};
+	}
+
+	[Symbol.asyncIterator](): AsyncIterableIterator<T> {
+		const
+			iter = this.#iter[Symbol.iterator]();
+
+		return {
+			next() {
+				console.log("asyncIter");
+				return Promise.resolve(iter.next());
+			},
+
+			[Symbol.asyncIterator]() {
+				return this;
 			}
 		};
 	}
@@ -207,5 +224,4 @@ export default class Iter<T> {
 
 		return new Iter([...newIter]);
 	}
-}
-
+};
