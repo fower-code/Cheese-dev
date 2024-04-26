@@ -1,5 +1,7 @@
 export default class EventEmitter {
-	#handlers: Map<string, Function[]>;
+	// readonly #handlers: Map<string, Function[]>;
+
+	readonly #handlers: Map<string, Set<Function>>;
 
 	get handlers() {
 		return this.#handlers;
@@ -13,8 +15,8 @@ export default class EventEmitter {
 		return this.#handlers.has(event);
 	}
 
-	public clearHandlers(event: Event): void {
-
+	public clear() {
+		this.#handlers.clear();
 	}
 
 	public once(event: string, cb: (v: unknown) => unknown) {
@@ -26,20 +28,35 @@ export default class EventEmitter {
 			handlers = this.#handlers.get(event);
 
 		if (handlers) {
-			handlers.push(cb);
-			this.handlers.set(event, handlers);
+			handlers.add(cb);
 
 		} else {
-			this.handlers.set(event, [cb]);
+			this.#handlers.set(event, new Set([cb]));
 		}
 	}
 
 	public off(event: string, cb?: (v: unknown) => unknown) {
+		if (!cb) {
+			this.#handlers.delete(event);
+			return;
+		}
+
 		const
 			handlers = this.#handlers.get(event);
+
+		if (handlers) {
+			handlers.delete(cb);
+		}
 	}
 
-	public emit(key: string, val: unknown) {
+	public emit(event: string, val: unknown) {
+		const
+			handlers = this.#handlers.get(event);
 
+		if (handlers) {
+			for (const handler of handlers) {
+				handler(val);
+			}
+		}
 	}
 };
