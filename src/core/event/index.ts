@@ -1,6 +1,4 @@
 export default class EventEmitter {
-	// readonly #handlers: Map<string, Function[]>;
-
 	readonly #handlers: Map<string, Set<Function>>;
 
 	get handlers() {
@@ -20,7 +18,26 @@ export default class EventEmitter {
 	}
 
 	public once(event: string, cb: (v: unknown) => unknown) {
+		const
+			handlers = this.#handlers.get(event);
 
+		const cbWrap = (v: unknown) => {
+			cb(v);
+
+			if (handlers) {
+				handlers.delete(cbWrap);
+
+			} else {
+				this.#handlers.delete(event);
+			}
+		};
+
+		if (handlers) {
+			handlers.add(cbWrap);
+
+		} else {
+			this.#handlers.set(event, new Set([cbWrap]));
+		}
 	}
 
 	public on(event: string, cb: (v: unknown) => unknown) {
