@@ -1,8 +1,55 @@
 export default class EventEmitter {
+	// todo callback type
 	readonly #handlers: Map<string, Set<Function>>;
 
 	get handlers() {
 		return this.#handlers;
+	}
+
+	static stream(el: EventEmitter, event: string, handler: (v: unknown) => unknown){
+		let
+			cb;
+
+		el.on(event, handler);
+
+		// el.addEventListener(event, (ev) => {
+		// 	console.log(2);
+		// 	handler(ev);
+		// });
+
+		return {
+			[Symbol.iterator]() {
+				return this;
+			},
+
+			next() {
+				// return Promise.resolve({
+				// 	done: false,
+				// 	value: new Promise((resolve) => {
+				// 		// cb = resolve
+				// 		handler = resolve
+				// 	})
+				// });
+
+				// return new Promise((resolve) => {
+				// 	resolve({
+				// 		done: false,
+				// 		value:
+				// 			// cb = resolve
+				// 			handler = resolve
+				// 		})
+				// 	});
+				// });
+
+				return {
+					done: false,
+					value: new Promise((resolve) => {
+						// cb = resolve
+						handler = resolve
+					})
+				};
+			}
+		}
 	}
 
 	constructor() {
