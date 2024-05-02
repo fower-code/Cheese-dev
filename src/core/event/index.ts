@@ -2,6 +2,9 @@ import {Handler} from "~core/event/interfaces";
 
 export {default as streamEvent} from "./stream";
 
+/**
+ * @description Класс для работы с событиями.
+ */
 export default class EventEmitter<T> {
 	// todo callback type
 	readonly #handlers: Map<string, Set<Handler<T>>>;
