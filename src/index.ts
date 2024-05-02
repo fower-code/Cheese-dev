@@ -4,10 +4,11 @@ const online = isOnline();
 
 online
 	.then((data) => {
-			console.log(`data: `, data);
-			return data;
-		},
-	)
+		// вызовется
+		console.log(`data: `, data);
+
+	})
 	.catch((err) => {
+		// вызовется
 		console.log(`err: `, err);
 	});

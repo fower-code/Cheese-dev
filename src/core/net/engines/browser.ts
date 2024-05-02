@@ -11,20 +11,20 @@ export default async function isOnline(): Promise<boolean | null> {
 	const
 		url = defaultConfigNet.checkUrl;
 
-	return new Promise((resolve) => {
+	return new Promise((resolve, reject) => {
 		let
 			retryCount = 0;
 
 		let
-			timer: ReturnType<typeof setTimeout> | null,
+			timer: ReturnType<typeof setTimeout>,
 			timeout = false;
-		console.log(defaultConfigNet.checkInterval);
-		if (defaultConfigNet.checkInterval != null) {
-			timer = setTimeout(() => {
-				timeout = true;
-				resolve(false);
-			}, defaultConfigNet.checkInterval);
+
+		if (defaultConfigNet.checkInterval == null) {
+			return;
 		}
+
+		const
+			checkInterval = defaultConfigNet.checkInterval;
 
 		checkOnline();
 
@@ -47,12 +47,15 @@ export default async function isOnline(): Promise<boolean | null> {
 		function retry() {
 			if (
 				defaultConfigNet.retryCount == null ||
-				++retryCount > defaultConfigNet.retryCount
+				++retryCount >= defaultConfigNet.retryCount
 			) {
-				resolve(false);
+				reject(false);
 
 			} else {
-				checkOnline();
+				timer = setTimeout(() => {
+					clearTimeout(timer);
+					checkOnline();
+				}, checkInterval);
 			}
 		}
 	});
