@@ -10,7 +10,7 @@ export interface NetConfig {
 	/**
 	 * @description Интервал между проверка соединения.
 	 */
-	checkInterval: number;
+	checkInterval?: number;
 
 	/**
 	 * @description Число повторов соединения.
