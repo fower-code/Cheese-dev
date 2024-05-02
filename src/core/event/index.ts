@@ -1,55 +1,13 @@
-export default class EventEmitter {
+import {Handler} from "~core/event/interfaces";
+
+export {default as streamEvent} from "./stream";
+
+export default class EventEmitter<T> {
 	// todo callback type
-	readonly #handlers: Map<string, Set<Function>>;
+	readonly #handlers: Map<string, Set<Handler<T>>>;
 
 	get handlers() {
 		return this.#handlers;
-	}
-
-	static stream(el: EventEmitter, event: string, handler: (v: unknown) => unknown){
-		let
-			cb;
-
-		el.on(event, handler);
-
-		// el.addEventListener(event, (ev) => {
-		// 	console.log(2);
-		// 	handler(ev);
-		// });
-
-		return {
-			[Symbol.iterator]() {
-				return this;
-			},
-
-			next() {
-				// return Promise.resolve({
-				// 	done: false,
-				// 	value: new Promise((resolve) => {
-				// 		// cb = resolve
-				// 		handler = resolve
-				// 	})
-				// });
-
-				// return new Promise((resolve) => {
-				// 	resolve({
-				// 		done: false,
-				// 		value:
-				// 			// cb = resolve
-				// 			handler = resolve
-				// 		})
-				// 	});
-				// });
-
-				return {
-					done: false,
-					value: new Promise((resolve) => {
-						// cb = resolve
-						handler = resolve
-					})
-				};
-			}
-		}
 	}
 
 	constructor() {
@@ -64,11 +22,11 @@ export default class EventEmitter {
 		this.#handlers.clear();
 	}
 
-	public once(event: string, cb: (v: unknown) => unknown) {
+	public once(event: string, cb: (v: T) => unknown) {
 		const
 			handlers = this.#handlers.get(event);
 
-		const cbWrap = (v: unknown) => {
+		const cbWrap = (v: T) => {
 			cb(v);
 
 			if (handlers) {
@@ -87,7 +45,7 @@ export default class EventEmitter {
 		}
 	}
 
-	public on(event: string, cb: (v: unknown) => unknown) {
+	public on(event: string, cb: (v: T) => unknown) {
 		const
 			handlers = this.#handlers.get(event);
 
@@ -113,7 +71,7 @@ export default class EventEmitter {
 		}
 	}
 
-	public emit(event: string, val: unknown) {
+	public emit(event: string, val: T) {
 		const
 			handlers = this.#handlers.get(event);
 
