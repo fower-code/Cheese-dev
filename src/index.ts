@@ -3,48 +3,55 @@ import {asyncForeach} from "~core/iter/async";
 
 const r = range(1, 10);
 
-function createPromise() {
+function createPromise(n: number) {
 	return new Promise((resolve, reject) => {
 		let timer = setTimeout(() => {
-			resolve(1);
+			resolve(n);
 			clearTimeout(timer);
 
 		}, 3000);
 	})
 }
 
-function asyncIterPromise<T = Promise<unknown>>(iterable: Iterable<T>) {
-	const
-		iter = iterable[Symbol.iterator]();
-
-	return {
-		[Symbol.asyncIterator]() {
-			return this;
-		},
-
-		async next() {
-			const res = iter.next();
-
-			if (res.value) {
-				await res.value().then((v: unknown) => {
-					console.log(v);
-					return v;
-				});
-			}
-
-			return res;
-		}
-	};
-}
+// function asyncIterPromise<T = Promise<unknown>>(iterable: Iterable<T>) {
+// 	const
+// 		iter = iterable[Symbol.iterator]();
+//
+// 	return {
+// 		[Symbol.asyncIterator]() {
+// 			return this;
+// 		},
+//
+// 		async next() {
+// 			const res = iter.next();
+//
+// 			if (res.value) {
+// 				await res.value().then((v: unknown) => {
+// 					console.log(v);
+// 					return v;
+// 				});
+// 			}
+//
+// 			return res;
+// 		}
+// 	};
+// }
 
 const a1 = [
-	createPromise,
-	createPromise,
+	1,
+	2
 ];
 
+function asyncIterConvertPromise() {
+
+}
+
 (async () => {
-	for await (const el of asyncIterPromise(a1)) {
-		console.log(el);
+	for await (const el of a1) {
+		// console.log(el);
+		await createPromise(el).then((v) => {
+			console.log(v)
+		});
 	}
 })();
 
