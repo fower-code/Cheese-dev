@@ -1,5 +1,5 @@
 import range from "~core/range";
-import {asyncForeach} from "~core/iter/async";
+import {asyncForeach} from "~core/iter";
 
 const r = range(1, 100);
 
