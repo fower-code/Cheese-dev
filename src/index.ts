@@ -1,14 +1,10 @@
-import isOnline from "~core/net/engines/browser";
+import range from "~core/range";
+import {asyncForeach} from "~core/iter";
 
-const online = isOnline();
+const r = range(1, 100);
 
-online
-	.then((data) => {
-		// вызовется
-		console.log(`data: `, data);
-
-	})
-	.catch((err) => {
-		// вызовется
-		console.log(`err: `, err);
-	});
+(async () => {
+	for await (const el of asyncForeach(r, 1, 3000)) {
+		console.log(el);
+	}
+})();

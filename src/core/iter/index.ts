@@ -1,3 +1,7 @@
+import {asyncForeach} from "~core/iter/async";
+
+export {asyncForeach};
+
 export default class Iter<T> {
 	readonly #iter: Iterable<T>
 
