@@ -2,6 +2,7 @@ import LLNode from "~core/linked-list/singly/node";
 
 /**
  * @description Класс односвязного списка.
+ * @template T - Тип значения узла списка.
  */
 export default class LinkedList<T> {
 	/**
@@ -59,7 +60,7 @@ export default class LinkedList<T> {
 
 	/**
 	 * @description Добавляет элемент в начало списка.
-	 * @param {T} item Новый элемент списка
+	 * @param {T} item Новый элемент списка.
 	 */
 	public insertFirst(item: T): void {
 		const newNode: LLNode<T> = new LLNode(item);
@@ -107,7 +108,8 @@ export default class LinkedList<T> {
 	}
 
 	/**
-	 * @description Возвращает true, если список пустой, и false в обратном случае
+	 * @description Возвращает true, если список пустой,
+	 * и false в обратном случае.
 	 * @return boolean
 	 */
 	public isEmpty(): boolean {
