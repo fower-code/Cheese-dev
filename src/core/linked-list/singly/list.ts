@@ -38,14 +38,23 @@ export default class LinkedList<T> {
 		}
 	}
 
-	* [Symbol.iterator]() {
-		let
-			current: CanNull<LLNode<T>> = this.firstNode;
-
-		while (current) {
-			yield current.data;
-			current = current.next;
+	[Symbol.iterator](): IterableIterator<T> {
+		if (this.firstNode) {
+			return this.firstNode[Symbol.iterator]();
 		}
+
+		return {
+			next() {
+				return {
+					done: true,
+					value: null
+				};
+			},
+
+			[Symbol.iterator]() {
+				return this;
+			}
+		};
 	}
 
 	/**

@@ -9,4 +9,32 @@ export default class LLNode<T> {
 		this.next = next ?? null;
 		this.data = data;
 	}
+
+	[Symbol.iterator](): IterableIterator<T> {
+		let
+			node: CanNull<LLNode<T>> = this;
+
+		return {
+			next() {
+				if (node) {
+					const temp = node;
+					node = node.next;
+
+					return {
+						done: false,
+						value: temp.data
+					};
+				}
+
+				return {
+					done: true,
+					value: null
+				};
+			},
+
+			[Symbol.iterator]() {
+				return this;
+			}
+		}
+	}
 };
