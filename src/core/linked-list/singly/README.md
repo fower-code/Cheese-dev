@@ -15,10 +15,9 @@ list.insertFirst(0);
 list.removeFirst();
 
 for (const val of list) {
+   // 10, 20, 30
    console.log(val);
 }
-
-// 10, 20, 30
 ```
 
 ## API

@@ -1,10 +1,15 @@
-import range from "~core/range";
-import {asyncForeach} from "~core/iter";
+import {LinkedList} from "~core/linked-list";
 
-const r = range(1, 100);
+const list = new LinkedList();
 
-(async () => {
-	for await (const el of asyncForeach(r, 1, 3000)) {
-		console.log(el);
-	}
-})();
+list.insertFirst(30)
+list.insertFirst(20)
+list.insertFirst(10);
+list.insertFirst(0);
+list.removeFirst();
+console.log([...list]);
+// console.log(list.length);
+
+// for (const node of list) {
+// 	console.log(node);
+// }
