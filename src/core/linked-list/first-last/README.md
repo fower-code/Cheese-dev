@@ -19,8 +19,8 @@ list.insertFirst(-5);
 list.removeFirst();
 list.insertFirst(-10);
 
-// -10, 0, 10, 20, 30
 for (const val of list) {
+   // -10, 0, 10, 20, 30
    console.log(val)
 }
 ```
