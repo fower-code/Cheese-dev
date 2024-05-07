@@ -2,6 +2,7 @@ import FLNode from "~core/linked-list/first-last/node";
 
 /**
  * @description Класс двустороннего списка.
+ * @template T - Тип значения узла списка.
  */
 export default class FirstLastList<T> {
 	/**
@@ -51,19 +52,28 @@ export default class FirstLastList<T> {
 		}
 	}
 
-	* [Symbol.iterator]() {
-		let
-			current: CanNull<FLNode<T>> = this.firstNode;
-
-		while (current) {
-			yield current.data;
-			current = current.next;
+	[Symbol.iterator](): IterableIterator<T> {
+		if (this.firstNode) {
+			return this.firstNode[Symbol.iterator]();
 		}
+
+		return {
+			next() {
+				return {
+					done: true,
+					value: null
+				};
+			},
+
+			[Symbol.iterator]() {
+				return this;
+			}
+		};
 	}
 
 	/**
 	 * @description Добавляет элемент в начало списка.
-	 * @param item Новый элемент списка
+	 * @param {T} item - Новый элемент списка.
 	 */
 	public insertFirst(item: T): void {
 		const
@@ -81,7 +91,7 @@ export default class FirstLastList<T> {
 
 	/**
 	 * @description Удаляет элемент из начала списка.
-	 * @return LLNode<T> | null
+	 * @return {T | null}
 	 */
 	public removeFirst(): T | null {
 		if (this.firstNode === null) {
@@ -100,7 +110,7 @@ export default class FirstLastList<T> {
 
 	/**
 	 * @description Добавляет элемент в конец списка.
-	 * @param item Новый элемент списка
+	 * @param {T} item - Новый элемент списка.
 	 */
 	public insertLast(item: T): void {
 		const
@@ -142,7 +152,8 @@ export default class FirstLastList<T> {
 	}
 
 	/**
-	 * @description Возвращает true, если список пустой, и false в обратном случае
+	 * @description Возвращает true, если список пустой, и false
+	 * в обратном случае.
 	 * @return boolean
 	 */
 	public isEmpty(): boolean {
