@@ -51,14 +51,23 @@ export default class FirstLastList<T> {
 		}
 	}
 
-	* [Symbol.iterator]() {
-		let
-			current: CanNull<FLNode<T>> = this.firstNode;
-
-		while (current) {
-			yield current.data;
-			current = current.next;
+	[Symbol.iterator](): IterableIterator<T> {
+		if (this.firstNode) {
+			return this.firstNode[Symbol.iterator]();
 		}
+
+		return {
+			next() {
+				return {
+					done: true,
+					value: null
+				};
+			},
+
+			[Symbol.iterator]() {
+				return this;
+			}
+		};
 	}
 
 	/**
