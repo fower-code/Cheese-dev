@@ -1,8 +1,16 @@
 /**
  * @description Узел двустороннего списка.
+ * @template T - Тип значения (тела) узла.
  */
 export default class FLNode<T> {
+	/**
+	 * @description Ссылка на следующий узел.
+	 */
 	public next: FLNode<T> | null;
+
+	/**
+	 * @description Значение (тело) узла.
+	 */
 	public data: T;
 
 	constructor(data: T, next?: FLNode<T> | null) {
@@ -35,6 +43,6 @@ export default class FLNode<T> {
 			[Symbol.iterator]() {
 				return this;
 			}
-		}
+		};
 	}
 };
