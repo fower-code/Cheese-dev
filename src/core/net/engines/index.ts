@@ -1,1 +1,1 @@
-export {isOnline} from "~core/net/engines/browser";
+export {default as isOnline} from "~core/net/engines/browser";
