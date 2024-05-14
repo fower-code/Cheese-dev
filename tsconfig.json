@@ -20,15 +20,15 @@
       "rootDir": ".",
       "paths": {
          "~core/*": [
-            "./src/core/*"
+            "src/core/*"
          ],
          "~assets/*": [
-            "./assets/*"
+            "assets/*"
          ]
       }
    },
    "include": [
-      "src/**/*",
+      "src/**/*.ts",
       "index.d.ts"
    ],
    "exclude": [
