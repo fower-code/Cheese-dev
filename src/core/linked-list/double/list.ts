@@ -7,7 +7,7 @@ export default class DoubleLinkedList<T> {
 	#first: DLNode<T> | null;
 	#last: DLNode<T> | null;
 
-	constructor() {
+	constructor(iter?: Iterable<T>) {
 		this.#first = null;
 		this.#last = null;
 	}
