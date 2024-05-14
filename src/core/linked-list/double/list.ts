@@ -2,6 +2,7 @@ import DLNode from "~core/linked-list/double/node";
 
 /**
  * @description Класс двустороннего списка.
+ * @template T
  */
 export default class DoubleLinkedList<T> {
 	/**
@@ -65,7 +66,7 @@ export default class DoubleLinkedList<T> {
 
 	/**
 	 * @description Добавляет элемент в начало списка.
-	 * @param item Новый элемент списка
+	 * @param {T} item - Новый элемент списка.
 	 */
 	public insertFirst(item: T): void {
 		const
@@ -84,7 +85,7 @@ export default class DoubleLinkedList<T> {
 
 	/**
 	 * @description Удаляет элемент из начала списка.
-	 * @return T | null
+	 * @return {T | null}
 	 */
 	public removeFirst(): T | null {
 		if (this.firstNode == null) {
@@ -107,7 +108,7 @@ export default class DoubleLinkedList<T> {
 
 	/**
 	 * @description Добавляет элемент в конец списка.
-	 * @param item Новый элемент списка
+	 * @param {T} item - Новый элемент списка.
 	 */
 	public insertLast(item: T) {
 		const
@@ -126,7 +127,7 @@ export default class DoubleLinkedList<T> {
 
 	/**
 	 * @description Удаляет элемент из конца списка.
-	 * @return T | null
+	 * @return {T | null}
 	 */
 	public removeLast(): T | null {
 		if (this.firstNode == null) {
@@ -152,7 +153,7 @@ export default class DoubleLinkedList<T> {
 	}
 
 	/**
-	 * @description Возвращает true, если список пустой, и false в обратном случае
+	 * @description Возвращает true, если список пустой, и false в обратном случае.
 	 * @return boolean
 	 */
 	public isEmpty(): boolean {
@@ -160,7 +161,7 @@ export default class DoubleLinkedList<T> {
 	}
 
 	/**
-	 * @description Очищает список
+	 * @description Очищает список.
 	 */
 	public clear(): void {
 		this.firstNode = null;
