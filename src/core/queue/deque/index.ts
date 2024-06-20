@@ -36,6 +36,9 @@ export default class Deque<T> {
 		this.innerStruct = new DoubleLinkedList<T>(iterable);
 	}
 
+	[Symbol.iterator](): IterableIterator<T> {
+		return this.innerStruct[Symbol.iterator]();
+	}
 
 	/**
 	 * @description Добавляет элемент в начало очереди.
