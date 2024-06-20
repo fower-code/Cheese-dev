@@ -1,28 +1,20 @@
-import {DoubleList} from "~core/linked-list";
+import {Queue} from "~core/queue";
+import Deque from "~core/queue/deque";
 
-// const list = new DoubleList([40, 30, 20, 10, 0]);
-const list = new DoubleList();
+const deque = new Deque([10, 20, 30]);
+// const deque = new Deque();
 
-list.insertFirst(30);
-list.insertFirst(20);
-list.insertFirst(10);
-list.insertFirst(0);
-list.insertLast(40);
-list.removeFirst();
-list.removeLast();
-list.insertLast(40);
-console.log([...list]);
-list.removeLast();
-list.removeLast();
-list.removeFirst();
-list.removeFirst();
+// deque.insertFirst(30);
+// deque.insertFirst(20);
+// deque.insertFirst(10);
+// deque.insertFirst(0);
+// deque.insertLast(40);
 
-console.log(list.first);
-console.log(list.last);
+// 0
+// console.log(deque.removeFirst());
 
-// console.log(list.length);
-// console.log(list.first);
-// console.log(list.last);
-// for (const node of list) {
-// 	console.log(node);
-// }
+// 40
+// console.log(deque.removeLast());
+
+// [10, 20, 30]
+console.log([...deque]);
