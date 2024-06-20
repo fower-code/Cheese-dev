@@ -146,7 +146,7 @@ export default class DoubleLinkedList<T> {
 		}
 
 		const
-			val = this.firstNode;
+			val = this.lastNode;
 
 		if (this.lastNode.prev === null) {
 			this.firstNode = null;
