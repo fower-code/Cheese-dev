@@ -1,18 +1,35 @@
 import {FirstLastList} from "~core/linked-list";
 
+/**
+ * @description Класс очереди.
+ * @template T - Тип значения элемента очереди.
+ */
 export default class Queue<T> {
-	get length() {
-		return this.innerStruct.length;
-	}
-
+	/**
+	 * @description Возвращает первый элемент очереди.
+	 */
 	get first() {
 		return this.innerStruct.first;
 	}
 
+	/**
+	 * @description Возвращает первый элемент очереди.
+	 */
 	get last() {
 		return this.innerStruct.last;
 	}
 
+	/**
+	 * @description Возвращает длину очереди.
+	 */
+	get length() {
+		return this.innerStruct.length;
+	}
+
+	/**
+	 * @description Внутреняя структура для очереди.
+	 * @protected
+	 */
 	protected innerStruct: FirstLastList<T>;
 
 	constructor(iterable?: Iterable<T>) {
@@ -20,8 +37,8 @@ export default class Queue<T> {
 	}
 
 	/**
-	 * @description Добавляет элемент в очередь
-	 * @param item Новый элемент очереди
+	 * @description Добавляет элемент в очередь.
+	 * @param {T} item Новый элемент очереди.
 	 */
 	public insert(item: T) {
 		this.innerStruct.insertLast(item);
@@ -35,7 +52,7 @@ export default class Queue<T> {
 	}
 
 	/**
-	 * @description Возвращает true, если очередь пуста, и false в обратном случае
+	 * @description Возвращает true, если очередь пуста, и false в обратном случае.
 	 * @return boolean
 	 */
 	public isEmpty() {
