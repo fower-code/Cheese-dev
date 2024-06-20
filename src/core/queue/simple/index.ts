@@ -5,14 +5,18 @@ export default class Queue<T> {
 		return this.innerStruct.length;
 	}
 
-	protected firstItem: CanNull<T> = null;
+	get first() {
+		return this.innerStruct.first;
+	}
 
-	protected popItem: CanNull<T> = null;
+	get last() {
+		return this.innerStruct.last;
+	}
 
 	protected innerStruct: FirstLastList<T>;
 
-	constructor() {
-		this.innerStruct = new FirstLastList<T>();
+	constructor(iterable?: Iterable<T>) {
+		this.innerStruct = new FirstLastList<T>(iterable);
 	}
 
 	/**
