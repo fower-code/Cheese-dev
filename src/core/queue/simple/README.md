@@ -30,6 +30,6 @@ console.log([...queue]);
 ```typescript
 const queue = new Queue([10, 20, 30]);
 
-// [10, 20, 30]
+// [30, 20, 10]
 console.log([...queue]);
 ```
