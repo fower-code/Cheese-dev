@@ -36,6 +36,10 @@ export default class Queue<T> {
 		this.innerStruct = new FirstLastList<T>(iterable);
 	}
 
+	[Symbol.iterator](): IterableIterator<T> {
+		return this.innerStruct[Symbol.iterator]();
+	}
+
 	/**
 	 * @description Добавляет элемент в очередь.
 	 * @param {T} item Новый элемент очереди.
