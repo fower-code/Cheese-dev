@@ -42,7 +42,7 @@ export default class Deque<T> {
 
 	/**
 	 * @description Добавляет элемент в начало очереди.
-	 * @param item Новый элемент очереди
+	 * @param {T} item Новый элемент очереди.
 	 */
 	public insertFirst(item: T) {
 		this.innerStruct.insertFirst(item);
@@ -57,7 +57,7 @@ export default class Deque<T> {
 
 	/**
 	 * @description Добавляет элемент в конец очереди.
-	 * @param item Новый элемент очереди
+	 * @param {T} item Новый элемент очереди.
 	 */
 	public insertLast(item: T) {
 		this.innerStruct.insertLast(item);
@@ -71,17 +71,17 @@ export default class Deque<T> {
 	}
 
 	/**
-	 * @description Возвращает true, если очередь пуста, и false в обратном случае
-	 * @return boolean
+	 * @description Возвращает true, если очередь пуста, и false в обратном случае.
+	 * @return {boolean}
 	 */
 	public isEmpty(): boolean {
 		return this.innerStruct.isEmpty();
 	}
 
 	/**
-	 * @description Очищает очередь
+	 * @description Очищает очередь.
 	 */
-	public clear(): void {
+	public clear() {
 		this.innerStruct.clear();
 	}
 };
