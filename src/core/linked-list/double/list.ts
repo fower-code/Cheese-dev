@@ -20,6 +20,13 @@ export default class DoubleLinkedList<T> {
 	}
 
 	/**
+	 * @description Возвращает длину списка.
+	 */
+	get length(): number {
+		return this.lengthList;
+	}
+
+	/**
 	 * @description Ссылка на первый элемент списка.
 	 * @protected
 	 */
