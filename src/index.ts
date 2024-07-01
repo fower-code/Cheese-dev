@@ -1,20 +1,18 @@
-import {Queue} from "~core/queue";
-import Deque from "~core/queue/deque";
+import {isOnline} from "~core/net";
 
-const deque = new Deque([10, 20, 30]);
-// const deque = new Deque();
+const successCallback = () => {
+	console.log("successCallback");
+};
 
-// deque.insertFirst(30);
-// deque.insertFirst(20);
-// deque.insertFirst(10);
-// deque.insertFirst(0);
-// deque.insertLast(40);
+const errorCallback = () => {
+	console.log("errorCallback");
+};
 
-// 0
-// console.log(deque.removeFirst());
+isOnline(errorCallback, successCallback)
+	.then((data) => {
+		console.log("success");
 
-// 40
-// console.log(deque.removeLast());
-
-// [10, 20, 30]
-console.log([...deque]);
+	})
+	.catch((err) => {
+		console.log("err: ", err);
+	});
