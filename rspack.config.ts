@@ -1,18 +1,18 @@
 import path from "node:path";
 
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import {Configuration, DevServer} from "@rspack/core";
 
-const devServer = {
+const devServer: DevServer = {
 	client: {
 		progress: true,
 		overlay: true,
 	},
 	hot: true,
-	http2: true,
 	static: path.resolve(__dirname, "assets"),
 };
 
-const config = {
+const config:Configuration = {
 	devtool: false,
 	mode: "development",
 
@@ -33,8 +33,6 @@ const config = {
 			configFile: path.resolve(__dirname, 'tsconfig.json'),
 			references: 'auto',
 		},
-
-		tsConfigPath: path.resolve(__dirname, 'tsconfig.json'),
 	},
 
 	plugins: [
