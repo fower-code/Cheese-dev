@@ -27,7 +27,8 @@
       }
    },
    "include": [
-      "rspack.config.ts"
+      "rspack.config.ts",
+      "rollup.config.ts"
    ],
    "exclude": [
       "node_modules"
