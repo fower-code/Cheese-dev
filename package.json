@@ -10,7 +10,7 @@
    "browser": "dist/bundle.umd.js",
    "packageManager": "yarn@4.4.1",
    "scripts": {
-      "build": "NODE_ENV=production rollup -c",
+      "build": "TS_NODE_PROJECT=\"tsconfig.node.json\" NODE_ENV=production rollup -c rollup.config.ts --configPlugin typescript",
       "serve": "TS_NODE_PROJECT=\"tsconfig.node.json\" rspack serve"
    },
    "devDependencies": {
