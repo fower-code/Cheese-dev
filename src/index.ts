@@ -1,35 +1,30 @@
-// import {isOnline} from "~core/net";
-//
-import {iterInterval} from "~core/iter";
+import {watch} from "~core/object";
 
-const successCallback = () => {
-	console.log("successCallback");
-};
+function handler<T>(value:T, old:T, p: unknown[]) {
+	console.log("Called handler");
+	console.log("newVal: ", value);
+	console.log("oldVal: ", old);
+	console.log(p);
+}
 
-const errorCallback = () => {
-	console.log("errorCallback");
-};
-//
-// isOnline(errorCallback, successCallback)
-// 	.then((data) => {
-// 		console.log("success");
-//
-// 	})
-// 	.catch((err) => {
-// 		console.log("err: ", err);
-// 	});
+const obj = {
+	a: 1,
+	b: 2,
+   c: new Map(),
+	d: {e: 1},
+}
 
-import {threadOnline} from "~core/net/engines/browser";
+const watcher = watch(obj, handler);
 
-const threadIter = threadOnline(errorCallback, successCallback);
+// Вызовется handler
+watcher.a = 2;
+// Вызовется handler
+console.log(watcher.c);
+watcher.c.set("s", 4);
+// Вызовется handler
+watcher.d.e = 5;
 
-(async () => {
-	if (!threadIter) {
-		return;
-	}
-
-	for await (const status of iterInterval(threadIter, 2000)) {
-		// console.log("Итерация завершилась");
-		console.log(`user in online ${status}`);
-	}
-})();
+// watcher.set("simple", 3);
+// watcher.set("data", {a: 1, b: 2});
+// const v = watcher.get("data");
+// v.a = 3;
