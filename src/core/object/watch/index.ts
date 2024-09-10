@@ -6,8 +6,8 @@ export default function watch<T extends object>(
 	obj: T,
 	handler: WatchHandler<unknown>,
 	path: (string | symbol)[] = []
-): T {
-	const proxy = new Proxy<T>(obj, {
+): { watcher: T; unwatch: () => void; } {
+	const proxy = Proxy.revocable<T>(obj, {
 		get(target, p, receiver) {
 			const
 				val = Reflect.get(target, p, receiver);
@@ -85,5 +85,8 @@ export default function watch<T extends object>(
 		}
 	});
 
-	return proxy;
+	return {
+		watcher: proxy.proxy,
+		unwatch: proxy.revoke
+	};
 }
