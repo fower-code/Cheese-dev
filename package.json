@@ -1,6 +1,6 @@
 {
    "name": "cheese",
-   "version": "0.0.9",
+   "version": "0.1.1",
    "license": "ISC",
    "author": "code-fun42 <iosdsbb@gmail.com>",
    "keywords": [],
@@ -8,24 +8,25 @@
    "main": "dist/bundle.min.js",
    "module": "dist/bundle.esm.js",
    "browser": "dist/bundle.umd.js",
-   "packageManager": "yarn@4.1.1",
+   "packageManager": "yarn@4.4.1",
    "scripts": {
-      "build": "NODE_ENV=production rollup -c",
-      "serve": "TS_NODE_PROJECT=\"tsconfig.rspack.json\" rspack serve"
+      "build": "TS_NODE_PROJECT=\"tsconfig.node.json\" NODE_ENV=production rollup -c rollup.config.ts --configPlugin typescript",
+      "serve": "TS_NODE_PROJECT=\"tsconfig.node.json\" rspack serve"
    },
    "devDependencies": {
       "@rollup/plugin-alias": "^5.1.0",
-      "@rollup/plugin-commonjs": "^25.0.7",
+      "@rollup/plugin-commonjs": "^26.0.1",
       "@rollup/plugin-html": "^1.0.3",
       "@rollup/plugin-json": "^6.1.0",
       "@rollup/plugin-node-resolve": "^15.2.3",
       "@rollup/plugin-terser": "^0.4.4",
       "@rollup/plugin-typescript": "^11.1.6",
-      "@rspack/cli": "^0.5.4",
-      "@rspack/core": "^0.5.4",
+      "@rspack/cli": "^1.0.3",
+      "@rspack/core": "^1.0.3",
+      "@rspack/dev-server": "^1.0.3",
       "@types/node": "^20.11.17",
       "html-webpack-plugin": "^5.6.0",
-      "rollup": "^4.9.6",
+      "rollup": "^4.21.2",
       "ts-node": "^10.9.2",
       "tslib": "^2.6.2",
       "typescript": "^5.3.3"
