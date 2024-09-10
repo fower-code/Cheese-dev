@@ -5,20 +5,20 @@
 ## Использование:
 
 ```js
-import watch from "~core/object/watch";
+import {watch} from "~core/object";
 
 function handler<T>(value:T, old:T, p: unknown[]) {
-	console.log("Called handler");
-	console.log("newVal: ", value);
-	console.log("oldVal: ", old);
-	console.log(p);
+   console.log("Called handler");
+   console.log("newVal: ", value);
+   console.log("oldVal: ", old);
+   console.log(p);
 }
 
 const obj = {
-	a: 1,
-	b: 2,
+   a: 1,
+   b: 2,
    c: new Map(),
-	d: {e: 1},
+   d: {e: 1},
 }
 
 const watcher = watch(obj, handler);
