@@ -77,9 +77,7 @@ export function filter<T>(
 	}
 }
 
-export function enumerate<T>(
-	iterable: Iterable<T>
-) {
+export function enumerate<T>(iterable: Iterable<T>) {
 	const
 		iter = iterable[Symbol.iterator]();
 
