@@ -1,6 +1,6 @@
-export function map<T>(
+export function map<T, U>(
 	iterable: Iterable<T>,
-	callback: (value: T, index?: number, iterable?: Iterable<T>) => T,
+	callback: (value: T, index?: number, iterable?: Iterable<T>) => U,
 	thisArg?: unknown
 ) {
 	const
@@ -39,6 +39,41 @@ export function map<T>(
 
 			return res;
 		}
+	}
+}
+
+export function filter<T>(
+	iterable: Iterable<T>,
+	predicate: (value: T, index?: number, iterable?: Iterable<T>) => boolean,
+	thisArg?: unknown
+) {
+	const
+		iter = iterable[Symbol.iterator]();
+
+	let
+		i = 0;
+
+	return {
+		[Symbol.iterator]() {
+         return this;
+      },
+
+      next() {
+			let
+				res = iter.next(),
+				isCondition = predicate.call(thisArg, res.value, i++, iterable);
+
+			while (!res.done && !isCondition) {
+				res = iter.next();
+				isCondition = predicate.call(thisArg, res.value, i++, iterable);
+			}
+
+         // if (!res.done && predicate.call(thisArg, res.value, i++, iterable)) {
+         //    return res;
+         // }
+
+         return res;
+      }
 	}
 }
 
