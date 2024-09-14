@@ -18,19 +18,6 @@ export function map<T, U>(
 			const res = iter.next();
 
 			if (!res.done) {
-				// const
-				// 	value = callback.call(thisArg, res.value, i++, iterable);
-
-				// if (mappedValues[Symbol.iterator]) {
-				// 	return mappedValues[Symbol.iterator]().next();
-				//
-				// } else {
-				// 	return {
-				// 		value: mappedValues,
-				// 		done: false,
-				// 	};
-				// }
-
 				return {
 					value: callback.call(thisArg, res.value, i++, iterable),
 					done: res.done,
@@ -67,10 +54,6 @@ export function filter<T>(
 				res = iter.next();
 				isCondition = predicate.call(thisArg, res.value, i++, iterable);
 			}
-
-			// if (!res.done && predicate.call(thisArg, res.value, i++, iterable)) {
-			//    return res;
-			// }
 
 			return res;
 		}
