@@ -113,15 +113,6 @@ export function take<T>(iterable: Iterable<T>, count: number) {
 				value: null,
 				done: true
 			};
-
-			// if (!res.done) {
-			// 	return {
-			// 		value: [count++, res.value],
-			// 		done: res.done
-			// 	};
-			// }
-
-			// return res;
 		}
 	};
 }
