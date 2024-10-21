@@ -87,6 +87,45 @@ export function enumerate<T>(iterable: Iterable<T>) {
 	};
 }
 
+export function take<T>(iterable: Iterable<T>, count: number) {
+	const
+		iter = iterable[Symbol.iterator]();
+
+	let
+		i = 0;
+
+	return {
+		[Symbol.iterator]() {
+			return this;
+		},
+
+		next() {
+			const res = iter.next();
+
+			if (!res.done && i++ < count) {
+				return {
+					value: res.value,
+					done: res.done
+				};
+			}
+
+			return {
+				value: null,
+				done: true
+			};
+
+			// if (!res.done) {
+			// 	return {
+			// 		value: [count++, res.value],
+			// 		done: res.done
+			// 	};
+			// }
+
+			// return res;
+		}
+	};
+}
+
 // export {asyncForeach} from "~core/iter/async";
 // export {iterInterval} from "~core/iter/async";
 //
