@@ -117,6 +117,41 @@ export function take<T>(iterable: Iterable<T>, count: number) {
 	};
 }
 
+export function repeat<T>(iterable: Iterable<T>, count: number) {
+	let
+		iter = iterable[Symbol.iterator]();
+
+	let i = 1;
+
+	return {
+		[Symbol.iterator]() {
+			return this;
+		},
+
+		next() {
+			let res = iter.next();
+
+			if (res.done && i >= count) {
+				return {
+					value: null,
+					done: true
+				};
+			}
+
+			if (res.done) {
+				i++;
+				iter = iterable[Symbol.iterator]();
+				res = iter.next();
+			}
+
+			return {
+				value: res.value,
+				done: false,
+			};
+		},
+	};
+}
+
 // export {asyncForeach} from "~core/iter/async";
 // export {iterInterval} from "~core/iter/async";
 //
