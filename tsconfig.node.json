@@ -17,17 +17,18 @@
       "declaration": true,
       "declarationDir": "build",
       "rootDir": ".",
+      "baseUrl": "./",
       "paths": {
          "~core/*": [
-            "./src/core/*"
+            "src/core/*"
          ],
          "~assets/*": [
-            "./assets/*"
+            "assets/*"
          ]
       }
    },
    "include": [
-      "rspack.config.ts",
+      "esbuild.config.ts",
       "rollup.config.ts"
    ],
    "exclude": [
