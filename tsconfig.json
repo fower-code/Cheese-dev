@@ -18,6 +18,7 @@
       "declaration": true,
       "declarationDir": "build",
       "rootDir": ".",
+      "baseUrl": "./",
       "paths": {
          "~core/*": [
             "src/core/*"
