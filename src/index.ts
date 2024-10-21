@@ -1,4 +1,8 @@
+import "~assets/style/main.css";
 import {enumerate, filter, map, repeat, take} from "~core/iter";
+import esbuildApiInit from "./esbuild-api";
+
+esbuildApiInit();
 
 const a = [1, 2, 3, 4, 5];
 let iter = map(a, (v,i, iterable) => {

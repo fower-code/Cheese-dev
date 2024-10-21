@@ -10,10 +10,12 @@
    "browser": "dist/bundle.umd.js",
    "packageManager": "yarn@4.4.1",
    "scripts": {
-      "build": "TS_NODE_PROJECT=\"tsconfig.node.json\" NODE_ENV=production rollup -c rollup.config.ts --configPlugin typescript",
-      "serve": "TS_NODE_PROJECT=\"tsconfig.node.json\" rspack serve"
+      "build": "rollup -c rollup.config.ts --configPlugin typescript",
+      "serve": "dotenv -e .env ts-node esbuild.config.ts"
    },
    "devDependencies": {
+      "@craftamap/esbuild-plugin-html": "^0.8.0",
+      "@esbuild/linux-x64": "^0.24.0",
       "@rollup/plugin-alias": "^5.1.0",
       "@rollup/plugin-commonjs": "^26.0.1",
       "@rollup/plugin-html": "^1.0.3",
@@ -21,11 +23,9 @@
       "@rollup/plugin-node-resolve": "^15.2.3",
       "@rollup/plugin-terser": "^0.4.4",
       "@rollup/plugin-typescript": "^11.1.6",
-      "@rspack/cli": "^1.0.3",
-      "@rspack/core": "^1.0.3",
-      "@rspack/dev-server": "^1.0.3",
       "@types/node": "^20.11.17",
-      "html-webpack-plugin": "^5.6.0",
+      "dotenv-cli": "^7.4.2",
+      "esbuild": "^0.24.0",
       "rollup": "^4.21.2",
       "ts-node": "^10.9.2",
       "tslib": "^2.6.2",
