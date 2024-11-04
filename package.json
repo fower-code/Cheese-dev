@@ -12,7 +12,8 @@
    "packageManager": "yarn@4.4.1",
    "scripts": {
       "build": "rollup -c rollup.config.ts --configPlugin typescript",
-      "serve": "dotenv -e .env ts-node esbuild.config.ts"
+      "serve": "dotenv -e .env ts-node esbuild.config.ts",
+      "lint": "eslint src/core/**"
    },
    "devDependencies": {
       "@craftamap/esbuild-plugin-html": "^0.8.0",
