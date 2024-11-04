@@ -4,11 +4,7 @@ import tsParser from "@typescript-eslint/parser";
 // const tsParser = require("@typescript-eslint/parser");
 
 const config = [
-    // configuration included in plugin
-    // jsdoc.configs["flat/recommended", "flat/recommended-error"],
     jsdoc.configs["flat/recommended"],
-    // jsdoc.configs["recommended-typescript"],
-    // other configuration objects...
     {
         files: [
             '**/src/**/*.js',
@@ -37,9 +33,7 @@ const config = [
                     'FunctionExpression',
                 ],
                 checkConstructors: false,
-                // exemptedBy: ['constructor'], // Исключаем конструкторы
             }],
-            // 'jsdoc/require-jsdoc': 'error', // Требует документацию для функций
             'jsdoc/require-description': 'warn', // Требует описание для JSDoc
             'jsdoc/require-param': 'warn', // Требует описание параметров
             'jsdoc/require-returns': 'warn', // Требует описание возвращаемого значения
@@ -48,4 +42,3 @@ const config = [
 ];
 
 export default config;
-// module.exports = config;
