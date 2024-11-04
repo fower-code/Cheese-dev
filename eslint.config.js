@@ -1,7 +1,5 @@
 import jsdoc from 'eslint-plugin-jsdoc';
 import tsParser from "@typescript-eslint/parser";
-// const jsdoc = require("eslint-plugin-jsdoc");
-// const tsParser = require("@typescript-eslint/parser");
 
 const config = [
     jsdoc.configs["flat/recommended"],
