@@ -32,9 +32,9 @@ const config = [
                 ],
                 checkConstructors: false,
             }],
-            'jsdoc/require-description': 'warn', // Требует описание для JSDoc
-            'jsdoc/require-param': 'warn', // Требует описание параметров
-            'jsdoc/require-returns': 'warn', // Требует описание возвращаемого значения
+            'jsdoc/require-description': 'warn',
+            'jsdoc/require-param': 'warn',
+            'jsdoc/require-returns': 'warn',
         }
     }
 ];
