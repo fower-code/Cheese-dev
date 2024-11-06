@@ -1,7 +1,8 @@
 import {
 	enumerate,
 	filter,
-	map
+	map,
+	take
 
 } from "~core/iter/index";
 
@@ -37,6 +38,23 @@ describe("core/iter/enumerate", () => {
 
 	test("enumerate []", () => {
 		const iter = enumerate([]);
+		expect([...iter]).toEqual([]);
+	});
+});
+
+describe("core/iter/take", () => {
+	test("take [1, 2, 3, 4] 3", () => {
+		const iter = take([1, 2, 3, 4], 3);
+		expect([...iter]).toEqual([1, 2, 3]);
+	});
+
+	test("take [1, 2, 3, 4] 4", () => {
+		const iter = take([1, 2, 3, 4], 4);
+		expect([...iter]).toEqual([1, 2, 3, 4]);
+	});
+
+	test("take [1, 2, 3, 4] 0", () => {
+		const iter = take([1, 2, 3, 4], 0);
 		expect([...iter]).toEqual([]);
 	});
 });
