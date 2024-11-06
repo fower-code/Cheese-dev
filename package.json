@@ -13,7 +13,8 @@
    "scripts": {
       "build": "rollup -c rollup.config.ts --configPlugin typescript",
       "serve": "dotenv -e .env ts-node esbuild.config.ts",
-      "lint": "eslint src/core/**"
+      "lint": "eslint src/core/**",
+      "test": "jest"
    },
    "devDependencies": {
       "@craftamap/esbuild-plugin-html": "^0.8.0",
