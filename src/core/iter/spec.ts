@@ -1,4 +1,9 @@
-import {enumerate, filter, map} from "~core/iter/index";
+import {
+	enumerate,
+	filter,
+	map
+
+} from "~core/iter/index";
 
 describe("core/iter/map", () => {
 	test("map [1, 2, 3, 4]", () => {
@@ -27,7 +32,7 @@ describe("core/iter/filter", () => {
 describe("core/iter/enumerate", () => {
 	test("enumerate [1, 2, 3, 4]", () => {
 		const iter = enumerate([1, 2, 3, 4]);
-		expect([...iter]).toEqual([[1,1], [2,2], [3,3], [4,4]]);
+		expect([...iter]).toEqual([[1, 1], [2, 2], [3, 3], [4, 4]]);
 	});
 
 	test("enumerate []", () => {
