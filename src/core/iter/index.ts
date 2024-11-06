@@ -121,6 +121,21 @@ export function take<T>(iterable: Iterable<T>, count: number) {
 }
 
 export function repeat<T>(iterable: Iterable<T>, count: number) {
+	if (count === 0) {
+		return {
+			[Symbol.iterator]() {
+				return this;
+			},
+
+			next() {
+				return {
+					value: null,
+					done: true
+				};
+			}
+		};
+	}
+
 	let
 		iter = iterable[Symbol.iterator]();
 
