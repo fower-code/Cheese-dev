@@ -4,10 +4,12 @@ const config: Config = {
 	rootDir: './',
 	projects: ["<rootDir>"],
 	testMatch: [
-		// '<rootDir>/dist/server/**/*[sS]pec.js',
 		"<rootDir>/src/**/*[sS]pec.ts",
 		"<rootDir>/src/**/?(*.)+(spec).ts"
 	],
+	moduleNameMapper: {
+		"~core/(.*)": "<rootDir>/src/core/$1",
+	},
 
 	preset: "ts-jest",
 	testEnvironment: "node",
