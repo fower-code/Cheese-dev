@@ -1,13 +1,11 @@
-import {LoggerEngine} from "~core/logger/engines/interface";
+import { LoggerEngine } from "~core/logger/engines/interface";
 
 export default class ConsoleEngine implements LoggerEngine {
 	#getStyleConfig() {
 		// todo
 	}
 
-	constructor() {
-
-	}
+	constructor() {}
 
 	public log(msg: string, ...args: unknown[]) {
 		console.log(msg, ...args);

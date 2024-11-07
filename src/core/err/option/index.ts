@@ -40,7 +40,6 @@ export default class Option<T> {
 
 		try {
 			return new Option<T>(cb(this.#data));
-
 		} catch (err) {
 			return new Option<T>(Option.None);
 		}
@@ -54,7 +53,7 @@ export default class Option<T> {
 		if (this.isNone) {
 			// todo
 			// if (option instanceof Option) {
-				return option;
+			return option;
 			// }
 
 			// return new Option(option);
@@ -62,4 +61,4 @@ export default class Option<T> {
 
 		return this;
 	}
-};
+}

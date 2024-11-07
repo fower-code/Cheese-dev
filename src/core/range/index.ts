@@ -1,6 +1,8 @@
-export default function range(start: number, end?: number):IterableIterator<number> {
-	let
-		i = start;
+export default function range(
+	start: number,
+	end?: number,
+): IterableIterator<number> {
+	let i = start;
 
 	return {
 		next() {
@@ -8,24 +10,24 @@ export default function range(start: number, end?: number):IterableIterator<numb
 				if (i <= end) {
 					return {
 						value: i++,
-						done: false
-					}
+						done: false,
+					};
 				}
 
 				return {
 					value: null,
-					done: true
-				}
+					done: true,
+				};
 			}
 
 			return {
 				value: i++,
 				done: false,
-			}
+			};
 		},
 
 		[Symbol.iterator]() {
 			return this;
-		}
-	}
-};
+		},
+	};
+}

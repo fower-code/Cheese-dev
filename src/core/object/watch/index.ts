@@ -1,16 +1,15 @@
-import {WatchHandler} from "~core/object/watch/interfaces";
+import { WatchHandler } from "~core/object/watch/interfaces";
 
-export type {WatchHandler};
+export type { WatchHandler };
 
 export default function watch<T extends object>(
 	obj: T,
 	handler: WatchHandler<unknown>,
-	path: (string | symbol)[] = []
+	path: (string | symbol)[] = [],
 ): T {
 	const proxy = new Proxy<T>(obj, {
 		get(target, p, receiver) {
-			const
-				val = Reflect.get(target, p, receiver);
+			const val = Reflect.get(target, p, receiver);
 
 			if (
 				typeof val === "function" &&
@@ -31,7 +30,10 @@ export default function watch<T extends object>(
 						case "get":
 							return (key: unknown) => {
 								const valFromGet = val.call(target, key);
-								if (valFromGet != null && typeof valFromGet === "object") {
+								if (
+									valFromGet != null &&
+									typeof valFromGet === "object"
+								) {
 									return watch(valFromGet, handler, [...path, p]);
 								}
 							};
@@ -61,8 +63,7 @@ export default function watch<T extends object>(
 		},
 
 		set(target, p, value, receiver) {
-			const
-				old = Reflect.get(target, p, receiver),
+			const old = Reflect.get(target, p, receiver),
 				res = Reflect.set(target, p, value, receiver);
 
 			if (res) {
@@ -73,8 +74,7 @@ export default function watch<T extends object>(
 		},
 
 		deleteProperty(target, p) {
-			const
-				old = Reflect.get(target, p, proxy),
+			const old = Reflect.get(target, p, proxy),
 				res = Reflect.deleteProperty(target, p);
 
 			if (res) {
@@ -82,7 +82,7 @@ export default function watch<T extends object>(
 			}
 
 			return res;
-		}
+		},
 	});
 
 	return proxy;

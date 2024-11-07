@@ -6,12 +6,10 @@ export function lines(s: string) {
 	return s.split(/\n+/);
 }
 
-export function linesIter(s: string){
-	let
-		rExpr = /(?<l>[^\r\n]+)/g;
+export function linesIter(s: string) {
+	let rExpr = /(?<l>[^\r\n]+)/g;
 
-	let
-		res = rExpr.exec(s);
+	let res = rExpr.exec(s);
 
 	return {
 		next() {
@@ -34,13 +32,13 @@ export function linesIter(s: string){
 
 		[Symbol.iterator]() {
 			return this;
-		}
+		},
 	};
 }
 
 export function unLines(a: string[]) {
 	if (a.length === 0) {
-		return ""
+		return "";
 	}
 
 	return a.join("\n");

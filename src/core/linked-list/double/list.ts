@@ -61,13 +61,13 @@ export default class DoubleLinkedList<T> {
 			next() {
 				return {
 					done: true,
-					value: null
+					value: null,
 				};
 			},
 
 			[Symbol.iterator]() {
 				return this;
-			}
+			},
 		};
 	}
 
@@ -76,12 +76,10 @@ export default class DoubleLinkedList<T> {
 	 * @param {T} item - Новый элемент списка.
 	 */
 	public insertFirst(item: T): void {
-		const
-			newNode: DLNode<T> = new DLNode(item);
+		const newNode: DLNode<T> = new DLNode(item);
 
 		if (this.firstNode == null) {
 			this.lastNode = newNode;
-
 		} else {
 			this.firstNode.prev = newNode;
 		}
@@ -99,12 +97,10 @@ export default class DoubleLinkedList<T> {
 			return null;
 		}
 
-		const
-			val = this.firstNode;
+		const val = this.firstNode;
 
 		if (this.firstNode.next === null) {
 			this.lastNode = null;
-
 		} else {
 			this.firstNode.next.prev = null;
 		}
@@ -118,12 +114,10 @@ export default class DoubleLinkedList<T> {
 	 * @param {T} item - Новый элемент списка.
 	 */
 	public insertLast(item: T) {
-		const
-			newNode: DLNode<T> = new DLNode(item);
+		const newNode: DLNode<T> = new DLNode(item);
 
 		if (this.lastNode === null) {
 			this.firstNode = newNode;
-
 		} else {
 			this.lastNode.next = newNode;
 			newNode.prev = this.lastNode;
@@ -145,12 +139,10 @@ export default class DoubleLinkedList<T> {
 			return null;
 		}
 
-		const
-			val = this.lastNode;
+		const val = this.lastNode;
 
 		if (this.lastNode.prev === null) {
 			this.firstNode = null;
-
 		} else {
 			this.lastNode.prev.next = null;
 		}
@@ -174,4 +166,4 @@ export default class DoubleLinkedList<T> {
 		this.firstNode = null;
 		this.lastNode = null;
 	}
-};
+}

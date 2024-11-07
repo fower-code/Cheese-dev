@@ -5,7 +5,7 @@
 ## Использование:
 
 ```typescript
-import {LinkedList} from "~core/linked-list";
+import { LinkedList } from "~core/linked-list";
 
 const list: LinkedList<number> = new LinkedList();
 list.insertFirst(30);
@@ -27,7 +27,7 @@ for (const val of list) {
 При создании списка, в него можно передать iterable-сущность:
 
 ```typescript
-import {LinkedList} from "~core/linked-list";
+import { LinkedList } from "~core/linked-list";
 
 const list: LinkedList<number> = new LinkedList([30, 20, 10]);
 
@@ -41,13 +41,13 @@ console.log(list.length);
 Так же сам список является iterable-сущностью:
 
 ```typescript
-import {LinkedList} from "~core/linked-list";
+import { LinkedList } from "~core/linked-list";
 
 const list: LinkedList<number> = new LinkedList([30, 20, 20, 10]);
 
 // 10, 20, 20, 30
 for (const val of list) {
-	console.log(val);
+   console.log(val);
 }
 
 // [10, 20, 20, 30 ]
@@ -62,7 +62,7 @@ console.log(new Set([...list]));
 Возвращает первый узел списка. Если первого узла нет, возвращает null
 
 ```typescript
-import {LinkedList} from "~core/linked-list";
+import { LinkedList } from "~core/linked-list";
 
 const list: LinkedList<number> = new LinkedList();
 
@@ -84,7 +84,7 @@ console.log(list.first);
 Возвращает длину списка.
 
 ```typescript
-import {LinkedList} from "~core/linked-list";
+import { LinkedList } from "~core/linked-list";
 
 const list: LinkedList<number> = new LinkedList();
 
@@ -106,7 +106,7 @@ console.log(list.length);
 Добавляет элемент в начало списка:
 
 ```typescript
-import {LinkedList} from "~core/linked-list";
+import { LinkedList } from "~core/linked-list";
 
 const list: LinkedList<number> = new LinkedList();
 
@@ -126,7 +126,7 @@ for (const val of list) {
 Удаляет элемент из начала списка, при этом возвращает значение элемента:
 
 ```typescript
-import {LinkedList} from "~core/linked-list";
+import { LinkedList } from "~core/linked-list";
 
 const list: LinkedList<number> = new LinkedList();
 list.insertFirst(20);
@@ -140,25 +140,25 @@ console.log(list.removeFirst());
 Разворачивает список:
 
 ```typescript
-import {LinkedList} from "~core/linked-list";
+import { LinkedList } from "~core/linked-list";
 
 const list: LinkedList<number> = new LinkedList();
 
-list.insertFirst(30)
-list.insertFirst(20)
-list.insertFirst(10)
+list.insertFirst(30);
+list.insertFirst(20);
+list.insertFirst(10);
 
 // 10, 20, 30
 for (const val of list) {
-	console.log(val);
+   console.log(val);
 }
 
 list.reverse();
-console.log('reverse:');
+console.log("reverse:");
 
 // 30, 20, 10
 for (const val of list) {
-	console.log(val);
+   console.log(val);
 }
 ```
 
@@ -167,7 +167,7 @@ for (const val of list) {
 Очищает список:
 
 ```typescript
-import {LinkedList} from "~core/linked-list";
+import { LinkedList } from "~core/linked-list";
 
 const list: LinkedList<number> = new LinkedList();
 
@@ -185,7 +185,7 @@ console.log(list.removeFirst());
 Возвращает true, если список пустой и false в обратном случае:
 
 ```typescript
-import {LinkedList} from "~core/linked-list";
+import { LinkedList } from "~core/linked-list";
 
 const list: LinkedList<number> = new LinkedList();
 

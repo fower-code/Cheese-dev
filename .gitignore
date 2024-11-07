@@ -1,5 +1,7 @@
 /.idea
 
+/.esbuild
+/coverage
 /dist
 
 node_modules
