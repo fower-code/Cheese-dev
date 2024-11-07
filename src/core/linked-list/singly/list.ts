@@ -48,13 +48,13 @@ export default class LinkedList<T> {
 			next() {
 				return {
 					done: true,
-					value: null,
+					value: null
 				};
 			},
 
 			[Symbol.iterator]() {
 				return this;
-			},
+			}
 		};
 	}
 
@@ -92,7 +92,8 @@ export default class LinkedList<T> {
 			return;
 		}
 
-		let prev: CanNull<LLNode<T>> = null,
+		let
+			prev: CanNull<LLNode<T>> = null,
 			current: CanNull<LLNode<T>> = this.firstNode,
 			next: CanNull<LLNode<T>> = null;
 
@@ -122,4 +123,4 @@ export default class LinkedList<T> {
 		this.lengthList = 0;
 		this.firstNode = null;
 	}
-}
+};

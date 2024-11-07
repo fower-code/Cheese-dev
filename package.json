@@ -4,7 +4,6 @@
    "license": "ISC",
    "author": "code-fun42 <iosdsbb@gmail.com>",
    "keywords": [],
-   "type": "module",
    "types": "index.d.ts",
    "main": "dist/bundle.min.js",
    "module": "dist/bundle.esm.js",
@@ -12,16 +11,11 @@
    "packageManager": "yarn@4.4.1",
    "scripts": {
       "build": "rollup -c rollup.config.ts --configPlugin typescript",
-      "serve": "dotenv -e .env ts-node esbuild.config.ts",
-      "lint": "eslint src/core/**",
-      "test": "jest",
-      "fmt:write": "prettier src/core --write",
-      "fmt:check": "prettier src/core --check"
+      "serve": "dotenv -e .env ts-node esbuild.config.ts"
    },
    "devDependencies": {
       "@craftamap/esbuild-plugin-html": "^0.8.0",
       "@esbuild/linux-x64": "^0.24.0",
-      "@eslint/js": "^9.14.0",
       "@rollup/plugin-alias": "^5.1.0",
       "@rollup/plugin-commonjs": "^26.0.1",
       "@rollup/plugin-html": "^1.0.3",
@@ -29,21 +23,12 @@
       "@rollup/plugin-node-resolve": "^15.2.3",
       "@rollup/plugin-terser": "^0.4.4",
       "@rollup/plugin-typescript": "^11.1.6",
-      "@types/eslint__js": "^8.42.3",
-      "@types/jest": "^29.5.14",
       "@types/node": "^20.11.17",
-      "@typescript-eslint/parser": "^8.12.2",
       "dotenv-cli": "^7.4.2",
       "esbuild": "^0.24.0",
-      "eslint": "^9.14.0",
-      "eslint-plugin-jsdoc": "^50.4.3",
-      "jest": "^29.7.0",
-      "prettier": "3.3.3",
       "rollup": "^4.21.2",
-      "ts-jest": "^29.2.5",
       "ts-node": "^10.9.2",
       "tslib": "^2.6.2",
-      "typescript": "^5.3.3",
-      "typescript-eslint": "^8.12.2"
+      "typescript": "^5.3.3"
    }
 }

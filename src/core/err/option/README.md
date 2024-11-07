@@ -5,7 +5,7 @@ Option представляет обертку над данными, котор
 ## Использование:
 
 ```typescript
-import { Option } from "~core/err";
+import {Option} from "~core/err";
 
 // Данных нет
 const data1 = new Option<string>(Option.None);
@@ -14,9 +14,10 @@ console.log(data1.isNone); // true
 
 try {
    data1.unwrap();
+
 } catch (err) {
    // выведется
-   console.log("Данных нет");
+   console.log('Данных нет');
 }
 
 data1
@@ -30,7 +31,7 @@ data1
       // Данные есть
       console.log(v);
       return v;
-   });
+   })
 ```
 
 ## API

@@ -1,5 +1,5 @@
-import type { CacheStrategy } from "~core/cache-data/strategy/interface";
-import type { LRUCacheOptions } from "~core/cache-data/strategy/lru/interface";
+import type {CacheStrategy} from "~core/cache-data/strategy/interface";
+import type {LRUCacheOptions} from "~core/cache-data/strategy/lru/interface";
 
 /**
  * @description Класс LRU-кеширования.
@@ -24,7 +24,8 @@ export default class LRUCache<T> implements CacheStrategy<T> {
 	}
 
 	public get(key: string): T | undefined {
-		const val: T | undefined = this.#queue.get(key);
+		const
+			val: T | undefined = this.#queue.get(key);
 
 		if (val) {
 			this.#queue.delete(key);

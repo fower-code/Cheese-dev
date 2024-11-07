@@ -1,1 +1,1 @@
-export * from "~core/logger/config/interface";
+export * from '~core/logger/config/interface';

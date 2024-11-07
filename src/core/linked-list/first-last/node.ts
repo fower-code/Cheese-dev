@@ -19,7 +19,8 @@ export default class FLNode<T> {
 	}
 
 	[Symbol.iterator](): IterableIterator<T> {
-		let node: CanNull<FLNode<T>> = this;
+		let
+			node: CanNull<FLNode<T>> = this;
 
 		return {
 			next() {
@@ -29,19 +30,19 @@ export default class FLNode<T> {
 
 					return {
 						done: false,
-						value: temp.data,
+						value: temp.data
 					};
 				}
 
 				return {
 					done: true,
-					value: null,
+					value: null
 				};
 			},
 
 			[Symbol.iterator]() {
 				return this;
-			},
+			}
 		};
 	}
-}
+};

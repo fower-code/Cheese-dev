@@ -4,7 +4,8 @@
  * @param time
  */
 export function debounce(fn: Function, time: number) {
-	let timeout: CanNull<ReturnType<typeof setTimeout>>;
+	let
+		timeout: CanNull<ReturnType<typeof setTimeout>>;
 
 	return function (this: unknown, ...args: unknown[]) {
 		if (timeout != null) {
@@ -14,16 +15,19 @@ export function debounce(fn: Function, time: number) {
 		timeout = setTimeout(() => {
 			fn.apply(this, args);
 			timeout = null;
+
 		}, time);
-	};
+	}
 }
 
 /**
  * @description Функция, которая принимает функцию и возвращает ее throttle-версию.
  * @param fn
+ * @param time
  */
 export function throttle(fn: Function, time: number) {
-	let timeout: CanNull<ReturnType<typeof setTimeout>>,
+	let
+		timeout: CanNull<ReturnType<typeof setTimeout>>,
 		lastArgs: unknown[] = [];
 
 	return function wrapper(this: unknown, ...args: unknown[]) {
@@ -38,6 +42,7 @@ export function throttle(fn: Function, time: number) {
 				if (lastArgs !== args) {
 					wrapper.apply(this, lastArgs);
 				}
+
 			}, time);
 		}
 	};

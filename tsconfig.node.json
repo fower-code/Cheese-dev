@@ -29,8 +29,7 @@
    },
    "include": [
       "esbuild.config.ts",
-      "rollup.config.ts",
-      "jest.config.ts"
+      "rollup.config.ts"
    ],
    "exclude": [
       "node_modules"

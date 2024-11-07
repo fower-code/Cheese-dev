@@ -84,4 +84,4 @@ export default class Deque<T> {
 	public clear() {
 		this.innerStruct.clear();
 	}
-}
+};

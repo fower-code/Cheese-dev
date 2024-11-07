@@ -1,5 +1,5 @@
 import EventEmitter from "~core/event/index";
-import { Handler } from "~core/event/interfaces";
+import {Handler} from "~core/event/interfaces";
 
 /**
  * @description Функция для создания потока событий через асинхронный итератор.
@@ -10,7 +10,7 @@ import { Handler } from "~core/event/interfaces";
  */
 export default function streamEvent<T>(
 	ee: EventEmitter<T>,
-	event: string,
+	event: string
 ): AsyncIterableIterator<T> {
 	const resolvers: Set<Handler<T>> = new Set();
 
@@ -26,34 +26,36 @@ export default function streamEvent<T>(
 
 		next() {
 			return new Promise((r) => {
-				const e: T | undefined = queue.shift();
+				const
+					e: T | undefined = queue.shift();
 
 				if (e) {
 					r({
 						done: false,
-						value: e,
+						value: e
 					});
+
 				} else {
-					resolvers.add((v) =>
-						r({
-							done: false,
-							value: v,
-						}),
-					);
+					resolvers.add((v) => r({
+						done: false,
+						value: v
+					}));
 				}
 			});
-		},
+		}
 	};
 
 	function handler(e: T) {
 		if (resolvers.size > 0) {
 			try {
 				resolvers.forEach((r) => r(e));
+
 			} finally {
 				resolvers.clear();
 			}
+
 		} else {
 			queue.push(e);
 		}
 	}
-}
+};
