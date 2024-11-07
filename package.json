@@ -14,7 +14,9 @@
       "build": "rollup -c rollup.config.ts --configPlugin typescript",
       "serve": "dotenv -e .env ts-node esbuild.config.ts",
       "lint": "eslint src/core/**",
-      "test": "jest"
+      "test": "jest",
+      "fmt:write": "prettier src/core --write",
+      "fmt:check": "prettier src/core --check"
    },
    "devDependencies": {
       "@craftamap/esbuild-plugin-html": "^0.8.0",
