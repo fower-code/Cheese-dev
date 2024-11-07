@@ -1,6 +1,6 @@
-import {Handler} from "~core/event/interfaces";
+import { Handler } from "~core/event/interfaces";
 
-export {default as streamEvent} from "./stream";
+export { default as streamEvent } from "./stream";
 
 /**
  * @description Класс для работы с событиями.
@@ -26,15 +26,13 @@ export default class EventEmitter<T> {
 	}
 
 	public once(event: string, cb: (v: T) => unknown) {
-		const
-			handlers = this.#handlers.get(event);
+		const handlers = this.#handlers.get(event);
 
 		const cbWrap = (v: T) => {
 			cb(v);
 
 			if (handlers) {
 				handlers.delete(cbWrap);
-
 			} else {
 				this.#handlers.delete(event);
 			}
@@ -42,19 +40,16 @@ export default class EventEmitter<T> {
 
 		if (handlers) {
 			handlers.add(cbWrap);
-
 		} else {
 			this.#handlers.set(event, new Set([cbWrap]));
 		}
 	}
 
 	public on(event: string, cb: (v: T) => unknown) {
-		const
-			handlers = this.#handlers.get(event);
+		const handlers = this.#handlers.get(event);
 
 		if (handlers) {
 			handlers.add(cb);
-
 		} else {
 			this.#handlers.set(event, new Set([cb]));
 		}
@@ -66,8 +61,7 @@ export default class EventEmitter<T> {
 			return;
 		}
 
-		const
-			handlers = this.#handlers.get(event);
+		const handlers = this.#handlers.get(event);
 
 		if (handlers) {
 			handlers.delete(cb);
@@ -75,8 +69,7 @@ export default class EventEmitter<T> {
 	}
 
 	public emit(event: string, val: T) {
-		const
-			handlers = this.#handlers.get(event);
+		const handlers = this.#handlers.get(event);
 
 		if (handlers) {
 			for (const handler of handlers) {
@@ -84,4 +77,4 @@ export default class EventEmitter<T> {
 			}
 		}
 	}
-};
+}

@@ -1,16 +1,14 @@
-export {asyncForeach} from "~core/iter/async";
-export {iterInterval} from "~core/iter/async";
+export { asyncForeach } from "~core/iter/async";
+export { iterInterval } from "~core/iter/async";
 
 export function map<T, U>(
 	iterable: Iterable<T>,
 	callback: (value: T, index?: number, iterable?: Iterable<T>) => U,
-	thisArg?: unknown
+	thisArg?: unknown,
 ) {
-	const
-		iter = iterable[Symbol.iterator]();
+	const iter = iterable[Symbol.iterator]();
 
-	let
-		i = 0;
+	let i = 0;
 
 	return {
 		[Symbol.iterator]() {
@@ -28,20 +26,18 @@ export function map<T, U>(
 			}
 
 			return res;
-		}
-	}
+		},
+	};
 }
 
 export function filter<T>(
 	iterable: Iterable<T>,
 	predicate: (value: T, index?: number, iterable?: Iterable<T>) => boolean,
-	thisArg?: unknown
+	thisArg?: unknown,
 ) {
-	const
-		iter = iterable[Symbol.iterator]();
+	const iter = iterable[Symbol.iterator]();
 
-	let
-		i = 0;
+	let i = 0;
 
 	return {
 		[Symbol.iterator]() {
@@ -49,8 +45,7 @@ export function filter<T>(
 		},
 
 		next() {
-			let
-				res = iter.next(),
+			let res = iter.next(),
 				isCondition = predicate.call(thisArg, res.value, i++, iterable);
 
 			while (!res.done && !isCondition) {
@@ -59,16 +54,14 @@ export function filter<T>(
 			}
 
 			return res;
-		}
-	}
+		},
+	};
 }
 
 export function enumerate<T>(iterable: Iterable<T>) {
-	const
-		iter = iterable[Symbol.iterator]();
+	const iter = iterable[Symbol.iterator]();
 
-	let
-		count = 1;
+	let count = 1;
 
 	return {
 		[Symbol.iterator]() {
@@ -81,21 +74,19 @@ export function enumerate<T>(iterable: Iterable<T>) {
 			if (!res.done) {
 				return {
 					value: [count++, res.value],
-					done: res.done
+					done: res.done,
 				};
 			}
 
 			return res;
-		}
+		},
 	};
 }
 
 export function take<T>(iterable: Iterable<T>, count: number) {
-	const
-		iter = iterable[Symbol.iterator]();
+	const iter = iterable[Symbol.iterator]();
 
-	let
-		i = 0;
+	let i = 0;
 
 	return {
 		[Symbol.iterator]() {
@@ -108,21 +99,35 @@ export function take<T>(iterable: Iterable<T>, count: number) {
 			if (!res.done && i++ < count) {
 				return {
 					value: res.value,
-					done: res.done
+					done: res.done,
 				};
 			}
 
 			return {
 				value: null,
-				done: true
+				done: true,
 			};
-		}
+		},
 	};
 }
 
 export function repeat<T>(iterable: Iterable<T>, count: number) {
-	let
-		iter = iterable[Symbol.iterator]();
+	if (count === 0) {
+		return {
+			[Symbol.iterator]() {
+				return this;
+			},
+
+			next() {
+				return {
+					value: null,
+					done: true,
+				};
+			},
+		};
+	}
+
+	let iter = iterable[Symbol.iterator]();
 
 	let i = 1;
 
@@ -137,7 +142,7 @@ export function repeat<T>(iterable: Iterable<T>, count: number) {
 			if (res.done && i >= count) {
 				return {
 					value: null,
-					done: true
+					done: true,
 				};
 			}
 

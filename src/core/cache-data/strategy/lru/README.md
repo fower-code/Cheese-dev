@@ -5,12 +5,12 @@
 ## Использование:
 
 ```typescript
-import CacheData, {LRUCache} from "~core/cache-data";
+import CacheData, { LRUCache } from "~core/cache-data";
 
 const cacheData = new CacheData({
    strategy: new LRUCache({
       maxSize: 2,
-   })
+   }),
 });
 
 cacheData.set("a", 10);
@@ -55,12 +55,12 @@ export interface LRUCacheOptions {
 Если передать maxSize <= 0, то будет ошибка типа RangeError:
 
 ```typescript
-import CacheData, {LRUCache} from "~core/cache-data";
+import CacheData, { LRUCache } from "~core/cache-data";
 
 const cacheData = new CacheData({
    strategy: new LRUCache({
       maxSize: 0,
-   })
+   }),
 });
 
 // Uncaught RangeError: maxSize cache must be greater than 0
@@ -69,12 +69,12 @@ const cacheData = new CacheData({
 Если количество добавленных элементов больше maxSize, то самые первые элементы удаляются из кеша:
 
 ```typescript
-import CacheData, {LRUCache} from "~core/cache-data";
+import CacheData, { LRUCache } from "~core/cache-data";
 
 const cacheData = new CacheData({
    strategy: new LRUCache({
       maxSize: 2,
-   })
+   }),
 });
 
 cacheData.set("a", 10);
@@ -98,12 +98,12 @@ console.log(cacheData.get("c"));
 Принимает ключ и возвращает значение:
 
 ```typescript
-import CacheData, {LRUCache} from "~core/cache-data";
+import CacheData, { LRUCache } from "~core/cache-data";
 
 const cacheData = new CacheData({
    strategy: new LRUCache({
       maxSize: 2,
-   })
+   }),
 });
 
 cacheData.set("a", 10);
@@ -117,12 +117,12 @@ console.log(cacheData.get("a"));
 Возвращает true, если ключ есть в кеше:
 
 ```typescript
-import CacheData, {LRUCache} from "~core/cache-data";
+import CacheData, { LRUCache } from "~core/cache-data";
 
 const cacheData = new CacheData({
-	strategy: new LRUCache({
-		maxSize: 2,
-	})
+   strategy: new LRUCache({
+      maxSize: 2,
+   }),
 });
 
 cacheData.set("a", 10);
@@ -139,12 +139,12 @@ console.log(cacheData.hasKey("b"));
 Сохраняем значение в кеш по ключу:
 
 ```typescript
-import CacheData, {LRUCache} from "~core/cache-data";
+import CacheData, { LRUCache } from "~core/cache-data";
 
 const cacheData = new CacheData({
-	strategy: new LRUCache({
-		maxSize: 2,
-	})
+   strategy: new LRUCache({
+      maxSize: 2,
+   }),
 });
 
 cacheData.set("a", 10);
@@ -158,12 +158,12 @@ console.log(cacheData.hasKey("a"));
 Удаляет значение из кеша по ключу:
 
 ```typescript
-import CacheData, {LRUCache} from "~core/cache-data";
+import CacheData, { LRUCache } from "~core/cache-data";
 
 const cacheData = new CacheData({
-	strategy: new LRUCache({
-		maxSize: 2,
-	})
+   strategy: new LRUCache({
+      maxSize: 2,
+   }),
 });
 
 cacheData.set("a", 10);
@@ -182,12 +182,12 @@ console.log(cacheData.hasKey("a"));
 Полностью очищает кеш:
 
 ```typescript
-import CacheData, {LRUCache} from "~core/cache-data";
+import CacheData, { LRUCache } from "~core/cache-data";
 
 const cacheData = new CacheData({
-	strategy: new LRUCache({
-		maxSize: 2,
-	})
+   strategy: new LRUCache({
+      maxSize: 2,
+   }),
 });
 
 cacheData.set("a", 10);
@@ -206,12 +206,12 @@ console.log(cacheData.hasKey("a"));
 Возвращает true, если кеш пуст:
 
 ```typescript
-import CacheData, {LRUCache} from "~core/cache-data";
+import CacheData, { LRUCache } from "~core/cache-data";
 
 const cacheData = new CacheData({
-	strategy: new LRUCache({
-		maxSize: 2,
-	})
+   strategy: new LRUCache({
+      maxSize: 2,
+   }),
 });
 
 cacheData.set("a", 10);
@@ -230,12 +230,12 @@ console.log(cacheData.isEmpty());
 Всегда возвращает true, если кеш пустой, и false в обратном случае:
 
 ```typescript
-import CacheData, {LRUCache} from "~core/cache-data";
+import CacheData, { LRUCache } from "~core/cache-data";
 
 const cacheData = new CacheData({
-	strategy: new LRUCache({
-		maxSize: 2,
-	})
+   strategy: new LRUCache({
+      maxSize: 2,
+   }),
 });
 
 cacheData.set("a", 10);

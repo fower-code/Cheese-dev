@@ -24,8 +24,7 @@ export default class DLNode<T> {
 	}
 
 	[Symbol.iterator](): IterableIterator<T> {
-		let
-			node: CanNull<DLNode<T>> = this;
+		let node: CanNull<DLNode<T>> = this;
 
 		return {
 			next() {
@@ -35,19 +34,19 @@ export default class DLNode<T> {
 
 					return {
 						done: false,
-						value: temp.data
+						value: temp.data,
 					};
 				}
 
 				return {
 					done: true,
-					value: null
+					value: null,
 				};
 			},
 
 			[Symbol.iterator]() {
 				return this;
-			}
+			},
 		};
 	}
-};
+}
