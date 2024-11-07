@@ -1,4 +1,4 @@
-import type {CacheOptions, CacheStrategy} from "~core/cache-data/interface";
+import type { CacheOptions, CacheStrategy } from "~core/cache-data/interface";
 import DefaultStrategy from "~core/cache-data/strategy";
 
 export default class CacheData<T> {
@@ -9,7 +9,7 @@ export default class CacheData<T> {
 	}
 
 	public get(key: string) {
-		return this.#strategy.get(key)
+		return this.#strategy.get(key);
 	}
 
 	public hasKey(key: string): boolean {

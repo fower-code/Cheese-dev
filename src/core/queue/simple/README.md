@@ -5,7 +5,7 @@
 ## Использование
 
 ```typescript
-import {Queue} from "~core/queue";
+import { Queue } from "~core/queue";
 
 const queue = new Queue();
 

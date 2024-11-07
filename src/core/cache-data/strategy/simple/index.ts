@@ -1,4 +1,4 @@
-import type {CacheStrategy} from "~core/cache-data/strategy/interface";
+import type { CacheStrategy } from "~core/cache-data/strategy/interface";
 
 /**
  * @description Класс простого кеширования.
