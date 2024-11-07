@@ -5,7 +5,7 @@
 ## Использование:
 
 ```typescript
-import {FirstLastList} from "~core/linked-list";
+import { FirstLastList } from "~core/linked-list";
 
 const list: FirstLastList<number> = new FirstLastList();
 
@@ -21,7 +21,7 @@ list.insertFirst(-10);
 
 // -10, 0, 10, 20, 30
 for (const val of list) {
-   console.log(val)
+   console.log(val);
 }
 ```
 
@@ -32,7 +32,7 @@ for (const val of list) {
 При создании списка, в него можно передать iterable-сущность:
 
 ```typescript
-import {FirstLastList} from "~core/linked-list";
+import { FirstLastList } from "~core/linked-list";
 
 const list: FirstLastList<number> = new FirstLastList([30, 20, 10]);
 
@@ -46,7 +46,7 @@ console.log(list.length);
 Так же сам список является iterable-сущностью:
 
 ```typescript
-import {FirstLastList} from "~core/linked-list";
+import { FirstLastList } from "~core/linked-list";
 
 const list: FirstLastList<number> = new FirstLastList([30, 20, 20, 10]);
 
@@ -67,7 +67,7 @@ console.log(new Set([...list]));
 Возвращает первый узел списка. Если первого узла нет, возвращает null
 
 ```typescript
-import {FirstLastList} from "~core/linked-list";
+import { FirstLastList } from "~core/linked-list";
 
 const list: FirstLastList<number> = new FirstLastList();
 
@@ -89,7 +89,7 @@ console.log(list.first);
 Возвращает последний узел списка. Если первого узла нет, возвращает null
 
 ```typescript
-import {FirstLastList} from "~core/linked-list";
+import { FirstLastList } from "~core/linked-list";
 
 const list: FirstLastList<number> = new FirstLastList();
 
@@ -111,7 +111,7 @@ console.log(list.last);
 Возвращает длину списка.
 
 ```typescript
-import {FirstLastList} from "~core/linked-list";
+import { FirstLastList } from "~core/linked-list";
 
 const list: FirstLastList<number> = new FirstLastList();
 
@@ -133,7 +133,7 @@ console.log(list.length);
 Добавляет элемент в начало списка:
 
 ```typescript
-import {FirstLastList} from "~core/linked-list";
+import { FirstLastList } from "~core/linked-list";
 
 const list: FirstLastList<number> = new FirstLastList();
 
@@ -143,7 +143,7 @@ list.insertFirst(10);
 
 // 10, 20, 30
 for (const val of list) {
-   console.log(val)
+   console.log(val);
 }
 ```
 
@@ -152,7 +152,7 @@ for (const val of list) {
 Удаляет элемент из начала списка, при этом возвращает значение элемента:
 
 ```typescript
-import {FirstLastList} from "~core/linked-list";
+import { FirstLastList } from "~core/linked-list";
 
 const list: FirstLastList<number> = new FirstLastList();
 
@@ -167,7 +167,7 @@ console.log(list.removeFirst());
 Вставляет элемент в конец списка:
 
 ```typescript
-import {FirstLastList} from "~core/linked-list";
+import { FirstLastList } from "~core/linked-list";
 
 const list: FirstLastList<number> = new FirstLastList();
 
@@ -186,7 +186,7 @@ for (const val of list) {
 Разворачивает список:
 
 ```typescript
-import {FirstLastList} from "~core/linked-list";
+import { FirstLastList } from "~core/linked-list";
 
 const list = new FirstLastList();
 
@@ -200,7 +200,7 @@ console.log(list.first);
 console.log(list.last);
 
 list.reverse();
-console.log('reverse:');
+console.log("reverse:");
 
 // 30
 console.log(list.first);
@@ -213,7 +213,7 @@ console.log(list.last);
 Очищает список:
 
 ```typescript
-import {FirstLastList} from "~core/linked-list";
+import { FirstLastList } from "~core/linked-list";
 
 const list = new FirstLastList();
 
@@ -232,7 +232,7 @@ console.log(list.first);
 Возвращает true, если список пустой и false в обратном случае:
 
 ```typescript
-import {FirstLastList} from "~core/linked-list";
+import { FirstLastList } from "~core/linked-list";
 
 const list = new FirstLastList();
 

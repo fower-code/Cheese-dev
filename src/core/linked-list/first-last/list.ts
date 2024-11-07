@@ -61,13 +61,13 @@ export default class FirstLastList<T> {
 			next() {
 				return {
 					done: true,
-					value: null
+					value: null,
 				};
 			},
 
 			[Symbol.iterator]() {
 				return this;
-			}
+			},
 		};
 	}
 
@@ -76,8 +76,7 @@ export default class FirstLastList<T> {
 	 * @param {T} item - Новый элемент списка.
 	 */
 	public insertFirst(item: T): void {
-		const
-			newNode: FLNode<T> = new FLNode(item);
+		const newNode: FLNode<T> = new FLNode(item);
 
 		this.lengthList++;
 
@@ -113,8 +112,7 @@ export default class FirstLastList<T> {
 	 * @param {T} item - Новый элемент списка.
 	 */
 	public insertLast(item: T): void {
-		const
-			newNode: FLNode<T> = new FLNode(item);
+		const newNode: FLNode<T> = new FLNode(item);
 
 		this.lengthList++;
 
@@ -136,8 +134,7 @@ export default class FirstLastList<T> {
 			return;
 		}
 
-		let
-			prev: CanNull<FLNode<T>> = null,
+		let prev: CanNull<FLNode<T>> = null,
 			next: CanNull<FLNode<T>> = null,
 			current: CanNull<FLNode<T>> = this.firstNode;
 

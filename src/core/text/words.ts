@@ -7,11 +7,9 @@ export function words(s: string) {
 }
 
 export function wordsIter(s: string) {
-	let
-		rExpr = /(?<w>\b[\w-]+\b)/g;
+	let rExpr = /(?<w>\b[\w-]+\b)/g;
 
-	let
-		res = rExpr.exec(s);
+	let res = rExpr.exec(s);
 
 	return {
 		next() {
@@ -34,7 +32,7 @@ export function wordsIter(s: string) {
 
 		[Symbol.iterator]() {
 			return this;
-		}
+		},
 	};
 }
 

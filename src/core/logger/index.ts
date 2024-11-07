@@ -1,8 +1,8 @@
-import DefaultEngine, {LoggerEngine} from "~core/logger/engines";
-import type {LoggerOpts} from "~core/logger/interface";
+import DefaultEngine, { LoggerEngine } from "~core/logger/engines";
+import type { LoggerOpts } from "~core/logger/interface";
 
-export {LoggerOpts, LoggerEngine} from "~core/logger/interface";
-export {default as ConsoleEngine} from "~core/logger/engines/console";
+export { LoggerOpts, LoggerEngine } from "~core/logger/interface";
+export { default as ConsoleEngine } from "~core/logger/engines/console";
 
 export default class Logger {
 	public namespace: string;
@@ -25,5 +25,4 @@ export default class Logger {
 	public error(err: string | Error, ...args: unknown[]) {
 		this.#engine.error(err, ...args);
 	}
-
 }

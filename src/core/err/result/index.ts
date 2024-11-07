@@ -39,7 +39,6 @@ export default class Result<T> {
 
 		try {
 			return new Result(cb(this.#data));
-
 		} catch (err) {
 			return new Result(err);
 		}
@@ -57,9 +56,8 @@ export default class Result<T> {
 
 		try {
 			return new Result(cb(this.#data));
-
 		} catch (err) {
 			return new Result(err);
 		}
 	}
-};
+}

@@ -1,4 +1,4 @@
-import {FirstLastList} from "~core/linked-list";
+import { FirstLastList } from "~core/linked-list";
 
 /**
  * @description Класс очереди.
@@ -69,4 +69,4 @@ export default class Queue<T> {
 	public clear() {
 		this.innerStruct.clear();
 	}
-};
+}
