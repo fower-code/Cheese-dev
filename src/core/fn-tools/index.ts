@@ -3,7 +3,7 @@
  * @param fn
  * @param time
  */
-	export function debounce(fn: Function, time: number) {
+export function debounce(fn: Function, time: number) {
 	let timeout: CanNull<ReturnType<typeof setTimeout>>;
 
 	return function (this: unknown, ...args: unknown[]) {
