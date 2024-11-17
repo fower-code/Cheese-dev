@@ -3,7 +3,7 @@
  * @param fn
  * @param time
  */
-export function debounce(fn: Function, time: number) {
+	export function debounce(fn: Function, time: number) {
 	let timeout: CanNull<ReturnType<typeof setTimeout>>;
 
 	return function (this: unknown, ...args: unknown[]) {
@@ -22,7 +22,7 @@ export function debounce(fn: Function, time: number) {
  * @description Функция, которая принимает функцию и возвращает ее throttle-версию.
  * @param fn
  */
-		export function throttle(fn: Function, time: number) {
+export function throttle(fn: Function, time: number) {
 	let timeout: CanNull<ReturnType<typeof setTimeout>>,
 		lastArgs: unknown[] = [];
 
