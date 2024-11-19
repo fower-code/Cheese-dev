@@ -14,11 +14,7 @@
  * console.log(result); // ['Hello', 'World']
  */
 export function lines(s: string): string[] {
-	if (s.length === 0) {
-		return [s];
-	}
-
-	return s.split(/\n+/);
+	return [...linesIter(s)];
 }
 
 /**
@@ -39,16 +35,16 @@ export function lines(s: string): string[] {
  * }
  */
 export function linesIter(s: string): IterableIterator<string> {
-	let rExpr = /(?<l>[^\r\n]+)/g;
+	const re = /^.+$/gm;
 
-	let res = rExpr.exec(s);
+	let line = re.exec(s);
 
 	return {
 		next() {
-			if (res?.groups?.l) {
-				const val = res.groups.l;
+			if (line) {
+				const val = line[0];
 
-				res = rExpr.exec(s);
+				line = re.exec(s);
 
 				return {
 					value: val,
