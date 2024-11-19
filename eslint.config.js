@@ -1,5 +1,5 @@
-import jsdoc from 'eslint-plugin-jsdoc';
-import tsParser from "@typescript-eslint/parser";
+const jsdoc = require("eslint-plugin-jsdoc");
+const tsParser = require("@typescript-eslint/parser");
 
 const config = [
     jsdoc.configs["flat/recommended"],
@@ -35,8 +35,9 @@ const config = [
             'jsdoc/require-description': 'warn',
             'jsdoc/require-param': 'warn',
             'jsdoc/require-returns': 'warn',
+			  'jsdoc/tag-lines': "off",
         }
     }
 ];
 
-export default config;
+module.exports = config;
