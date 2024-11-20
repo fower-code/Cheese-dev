@@ -78,7 +78,9 @@ export function linesIter(s: string): IterableIterator<string> {
  * const result = unLines(['Hello', 'World']);
  * console.log(result); // 'Hello\nWorld'
  */
-export function unLines(a: string[]): string {
+export function unLines(iterable: Iterable<string>): string {
+	const a = [...iterable];
+
 	if (a.length === 0) {
 		return "";
 	}
