@@ -14,11 +14,7 @@
  * console.log(result); // ['Hello', 'World']
  */
 export function lines(s: string): string[] {
-	if (s.length === 0) {
-		return [s];
-	}
-
-	return s.split(/\n+/);
+	return [...linesIter(s)];
 }
 
 /**
@@ -39,16 +35,16 @@ export function lines(s: string): string[] {
  * }
  */
 export function linesIter(s: string): IterableIterator<string> {
-	let rExpr = /(?<l>[^\r\n]+)/g;
+	const re = /^.+$/gm;
 
-	let res = rExpr.exec(s);
+	let line = re.exec(s);
 
 	return {
 		next() {
-			if (res?.groups?.l) {
-				const val = res.groups.l;
+			if (line) {
+				const val = line[0];
 
-				res = rExpr.exec(s);
+				line = re.exec(s);
 
 				return {
 					value: val,
@@ -69,20 +65,25 @@ export function linesIter(s: string): IterableIterator<string> {
 }
 
 /**
- * Joins an array of lines into a single string with newline characters.
+ * Combines an iterable collection of strings into a single string,
+ * with each element separated by a newline character (`\n`).
  *
- * This function takes an array of strings and concatenates them into a single
- * string, with each element separated by a newline character. If the input
- * array is empty, it returns an empty string.
+ * This function is useful for creating multiline strings from an array of
+ * lines. If the input iterable is empty, the function will return an
+ * empty string.
  *
- * @param {string[]} a - The array of strings to be joined.
- * @returns {string} A single string with each element joined by a newline character.
+ * @param {Iterable<string>} iterable - An iterable collection of strings to
+ * be joined. Each string will be concatenated with a newline character in between.
+ * @returns {string} A single string containing all the elements from the iterable
+ * joined by newline characters. Returns an empty string if the iterable is empty.
  *
  * @example
  * const result = unLines(['Hello', 'World']);
  * console.log(result); // 'Hello\nWorld'
  */
-export function unLines(a: string[]): string {
+export function unLines(iterable: Iterable<string>): string {
+	const a = [...iterable];
+
 	if (a.length === 0) {
 		return "";
 	}

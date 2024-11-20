@@ -1,14 +1,17 @@
 import "~assets/style/main.css";
-import {enumerate, filter, map, repeat, take} from "~core/iter";
 import esbuildApiInit from "./esbuild-api";
-import {linesIter} from "~core/text";
+import {lines, linesIter, unLines, unWords, words, wordsIter} from "~core/text";
 
 esbuildApiInit();
 
-// const text1 = `
-// 	lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-// 	lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-// 	lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-// `;
-//
-// console.log([...linesIter(text1)]);
+const text =
+	"lorem ipsum lorem ipsum lorem ipsum lorem ipsum 1\n" +
+	"lorem ipsum lorem ipsum lorem ipsum lorem ipsum 2\n" +
+	"lorem ipsum lorem ipsum lorem ipsum lorem ipsum 3";
+
+// [
+// 	'lorem ipsum lorem ipsum lorem ipsum lorem ipsum 1',
+// 	'lorem ipsum lorem ipsum lorem ipsum lorem ipsum 2',
+// 	'lorem ipsum lorem ipsum lorem ipsum lorem ipsum 3'
+// ]
+console.log(lines(text));
