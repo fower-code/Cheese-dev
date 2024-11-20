@@ -1,3 +1,16 @@
+/**
+ * Splits a string into an array of words.
+ *
+ * This function uses a regular expression to identify words in the input string.
+ * Words are defined as sequences of non-whitespace characters bounded by word boundaries.
+ *
+ * @param {string} s - The input string to be split into words.
+ * @returns {string[]} An array of words extracted from the input string.
+ *
+ * @example
+ * const result = words("Hello, world!");
+ * console.log(result); // ["Hello,", "world!"]
+ */
 export function words(s: string): string[] {
 	return [...wordsIter(s)];
 }
