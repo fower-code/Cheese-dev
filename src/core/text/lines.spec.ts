@@ -1,6 +1,6 @@
 import { lines, linesIter, unLines } from "~core/text/lines";
 
-describe("core/text/lines", () => {
+describe("core/text/lines, fn lines", () => {
 	test("lines", () => {
 		const text =
 			"\n" +
@@ -15,7 +15,9 @@ describe("core/text/lines", () => {
 			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3",
 		]);
 	});
+});
 
+describe("core/text/lines, fn linesIter", () => {
 	test("linesIter", () => {
 		const text =
 			"\n" +
@@ -30,7 +32,9 @@ describe("core/text/lines", () => {
 			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3",
 		]);
 	});
+});
 
+describe("core/text/lines, fn unLines", () => {
 	test("unLines", () => {
 		const lines = [
 			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 1",
@@ -40,8 +44,8 @@ describe("core/text/lines", () => {
 
 		expect(unLines(lines)).toBe(
 			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 1\n" +
-				"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 2\n" +
-				"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3",
+			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 2\n" +
+			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3",
 		);
 	});
 });
