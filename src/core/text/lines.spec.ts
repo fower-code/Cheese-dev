@@ -44,8 +44,8 @@ describe("core/text/lines, fn unLines", () => {
 
 		expect(unLines(lines)).toBe(
 			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 1\n" +
-			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 2\n" +
-			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3",
+				"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 2\n" +
+				"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3",
 		);
 	});
 });
