@@ -10,7 +10,7 @@ describe("core/text/lines", () => {
 		expect(lines(text)).toEqual([
 			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 1",
 			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 2",
-			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3"
+			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3",
 		]);
 	});
 
@@ -24,7 +24,7 @@ describe("core/text/lines", () => {
 		expect([...linesIter(text)]).toEqual([
 			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 1",
 			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 2",
-			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3"
+			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3",
 		]);
 	});
 
@@ -32,10 +32,11 @@ describe("core/text/lines", () => {
 		const lines = [
 			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 1",
 			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 2",
-			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3"
+			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3",
 		];
 
-		expect(unLines(lines)).toBe(`\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 1
+		expect(unLines(lines))
+			.toBe(`\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 1
 \t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 2
 \t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3`);
 	});
