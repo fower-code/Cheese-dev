@@ -61,10 +61,27 @@ export function wordsIter(s: string): IterableIterator<string> {
 	};
 }
 
+/**
+ * Joins an iterable of words into a single string with a specified separator.
+ *
+ * If the iterable is empty, an empty string is returned. The default separator is a space.
+ *
+ * @param {Iterable<string>} iterable - An iterable collection of words to join.
+ * @param {CanUndef<string>} separator - The string to use as a separator between words (default is a space).
+ * @returns {string} A single string formed by joining the words with the specified separator.
+ *
+ * @example
+ * const result = unWords(["Hello,", "world!"]);
+ * console.log(result); // "Hello, world!"
+ *
+ * @example
+ * const resultWithCustomSeparator = unWords(["Hello,", "world!"], "-");
+ * console.log(resultWithCustomSeparator); // "Hello,-world!"
+ */
 export function unWords(
 	iterable: Iterable<string>,
 	separator: CanUndef<string> = " ",
-) {
+): string {
 	const a = [...iterable];
 
 	if (a.length === 0) {
