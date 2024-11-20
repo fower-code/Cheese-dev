@@ -1,4 +1,4 @@
-import {lines, linesIter, unLines} from "~core/text/lines";
+import { lines, linesIter, unLines } from "~core/text/lines";
 
 describe("core/text/lines", () => {
 	test("lines", () => {
