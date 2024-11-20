@@ -2,11 +2,12 @@ import { lines, linesIter, unLines } from "~core/text/lines";
 
 describe("core/text/lines", () => {
 	test("lines", () => {
-		const text = `
-		lorem ipsum lorem ipsum lorem ipsum lorem ipsum 1
-		lorem ipsum lorem ipsum lorem ipsum lorem ipsum 2
-		lorem ipsum lorem ipsum lorem ipsum lorem ipsum 3
-`;
+		const text = "\n" +
+			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 1\n" +
+			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 2\n" +
+			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3\n" +
+			"";
+
 		expect(lines(text)).toEqual([
 			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 1",
 			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 2",
@@ -15,11 +16,11 @@ describe("core/text/lines", () => {
 	});
 
 	test("linesIter", () => {
-		const text = `
-		lorem ipsum lorem ipsum lorem ipsum lorem ipsum 1
-		lorem ipsum lorem ipsum lorem ipsum lorem ipsum 2
-		lorem ipsum lorem ipsum lorem ipsum lorem ipsum 3
-`;
+		const text = "\n" +
+			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 1\n" +
+			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 2\n" +
+			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3\n" +
+			"";
 
 		expect([...linesIter(text)]).toEqual([
 			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 1",
@@ -35,9 +36,9 @@ describe("core/text/lines", () => {
 			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3",
 		];
 
-		expect(unLines(lines))
-			.toBe(`\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 1
-\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 2
-\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3`);
+		expect(unLines(lines)).toBe(
+			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 1\n" +
+			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 2\n" +
+			"\t\tlorem ipsum lorem ipsum lorem ipsum lorem ipsum 3");
 	});
 });
