@@ -1,22 +1,18 @@
-export function words(s: string) {
-	if (s.length === 0) {
-		return [s];
-	}
-
-	return s.split(/ +/);
+export function words(s: string): string[] {
+	return [...wordsIter(s)];
 }
 
-export function wordsIter(s: string) {
-	let rExpr = /(?<w>\b[\w-]+\b)/g;
+export function wordsIter(s: string): IterableIterator<string> {
+	const re = /\b[^\s]+\b/g;
 
-	let res = rExpr.exec(s);
+	let word = re.exec(s);
 
 	return {
 		next() {
-			if (res?.groups?.w) {
-				const val = res.groups.w;
+			if (word) {
+				const val = word[0];
 
-				res = rExpr.exec(s);
+				word = re.exec(s);
 
 				return {
 					value: val,
@@ -36,10 +32,15 @@ export function wordsIter(s: string) {
 	};
 }
 
-export function unWords(a: string[]) {
+export function unWords(
+	iterable: Iterable<string>,
+	separator: CanUndef<string> = " ",
+) {
+	const a = [...iterable];
+
 	if (a.length === 0) {
 		return "";
 	}
 
-	return a.join(" ");
+	return a.join(separator);
 }
