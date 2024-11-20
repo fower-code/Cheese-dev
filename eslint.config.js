@@ -1,5 +1,7 @@
 const jsdoc = require("eslint-plugin-jsdoc");
+const tsdoc = require("eslint-plugin-tsdoc");
 const tsParser = require("@typescript-eslint/parser");
+const tsEslintPlug = require("@typescript-eslint/eslint-plugin");
 
 const config = [
 	jsdoc.configs["flat/recommended"],
@@ -14,6 +16,8 @@ const config = [
 		},
 		plugins: {
 			jsdoc,
+			tsEslintPlug,
+			tsdoc,
 		},
 		rules: {
 			'jsdoc/require-jsdoc': ['warn', {
