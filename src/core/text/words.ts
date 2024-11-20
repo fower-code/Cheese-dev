@@ -15,6 +15,22 @@ export function words(s: string): string[] {
 	return [...wordsIter(s)];
 }
 
+/**
+ * An iterable iterator that produces words from a string one at a time.
+ *
+ * This function uses a regular expression to find words in the input string.
+ * Words are defined as sequences of non-whitespace characters bounded by word boundaries.
+ *
+ * @param {string} s - The input string to iterate over for words.
+ * @returns {IterableIterator<string>} An iterable iterator that yields words from the input
+ * string.
+ *
+ * @example
+ * const iterator = wordsIter("Hello, world!");
+ * for (const word of iterator) {
+ *   console.log(word); // "Hello,", then "world!"
+ * }
+ */
 export function wordsIter(s: string): IterableIterator<string> {
 	const re = /\b[^\s]+\b/g;
 
