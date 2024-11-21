@@ -1,17 +1,25 @@
 import "~assets/style/main.css";
 import esbuildApiInit from "./esbuild-api";
-import {lines, linesIter, unLines, unWords, words, wordsIter} from "~core/text";
+import {Range, range} from "~core/range";
 
 esbuildApiInit();
 
-const text =
-	"lorem ipsum lorem ipsum lorem ipsum lorem ipsum 1\n" +
-	"lorem ipsum lorem ipsum lorem ipsum lorem ipsum 2\n" +
-	"lorem ipsum lorem ipsum lorem ipsum lorem ipsum 3";
+// // 1, 2, 3, 4, 5
+// for (const i of range(1)) {
+// 	console.log(i);
+//
+// 	if (i >= 5) {
+// 		break;
+// 	}
+// }
+//
+// // 1, 2, 3, 4, 5
+// for (const i of range(1, 5)) {
+// 	console.log(i);
+// }
+//
+// [1, 2, 3, 4, 5]
+// console.log([...range(1, 5)]);
 
-// [
-// 	'lorem ipsum lorem ipsum lorem ipsum lorem ipsum 1',
-// 	'lorem ipsum lorem ipsum lorem ipsum lorem ipsum 2',
-// 	'lorem ipsum lorem ipsum lorem ipsum lorem ipsum 3'
-// ]
-console.log(lines(text));
+const r = new Range("a", "c");
+console.log([...r])
