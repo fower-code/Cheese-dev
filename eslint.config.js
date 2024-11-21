@@ -40,6 +40,11 @@ const config = [
 			'jsdoc/require-param': 'warn',
 			'jsdoc/require-returns': 'warn',
 			'jsdoc/tag-lines': "off",
+			'jsdoc/check-tag-names': ["warn", {
+				"definedTags": [
+					"remarks"
+				]
+			}]
 		}
 	}
 ];
