@@ -1,6 +1,6 @@
 import "~assets/style/main.css";
 import esbuildApiInit from "./esbuild-api";
-import {Range, range} from "~core/range";
+import {Range} from "~core/range";
 
 esbuildApiInit();
 
@@ -21,5 +21,9 @@ esbuildApiInit();
 // [1, 2, 3, 4, 5]
 // console.log([...range(1, 5)]);
 
-const r = new Range("a", "c");
-console.log([...r])
+// const r = new Range(1, "c");
+// console.log([...r]);
+
+for (const n of new Range(1,3)) {
+	console.log(n); // Outputs: 1, 2, 3
+}
