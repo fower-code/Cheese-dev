@@ -531,7 +531,6 @@ __metadata:
 "@esbuild/linux-x64@npm:0.24.0, @esbuild/linux-x64@npm:^0.24.0":
   version: 0.24.0
   resolution: "@esbuild/linux-x64@npm:0.24.0"
-  checksum: 10c0/6ff6aac2787de80986066c2d02d2ea2f03f4a8230c60a7ee00c296651897575f504d7a452047e1929c2228fcb120b8176582f3f28bc3ca0bc7de15437af12a96
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
@@ -2320,6 +2319,9 @@ __metadata:
     tslib: "npm:^2.6.2"
     typescript: "npm:^5.3.3"
     typescript-eslint: "npm:^8.12.2"
+  dependenciesMeta:
+    "@esbuild/linux-x64":
+      optional: true
   languageName: unknown
   linkType: soft
 
