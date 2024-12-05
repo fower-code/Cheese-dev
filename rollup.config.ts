@@ -3,6 +3,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import alias from "@rollup/plugin-alias";
 import terser from "@rollup/plugin-terser";
+import del from "rollup-plugin-delete";
 
 import pkg from "./package.json" with {type: "json"};
 
@@ -29,6 +30,7 @@ const config = {
 		},
 	],
 	plugins: [
+		del({targets: "dist/*"}),
 		resolve(),
 		commonjs(),
 		terser(),
