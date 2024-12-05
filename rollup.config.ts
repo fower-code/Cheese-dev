@@ -34,6 +34,7 @@ const config = {
 		terser(),
 		typescript({
 			tsconfig: "./tsconfig.json",
+			exclude: ["src/index.ts", "src/esbuild-api.ts",]
 		}),
 		alias({
 			entries: [
