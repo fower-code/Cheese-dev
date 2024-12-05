@@ -2,7 +2,7 @@
   "name": "cheese",
   "version": "0.2.1",
   "license": "ISC",
-  "author": "code-fun42 <iosdsbb@gmail.com>",
+  "author": "fower-code <iosdsbb@gmail.com>",
   "keywords": [],
   "types": "index.d.ts",
   "main": "dist/bundle.min.js",
