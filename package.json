@@ -4,6 +4,7 @@
    "license": "ISC",
    "author": "fower-code <iosdsbb@gmail.com>",
    "keywords": [],
+   "type": "module",
    "types": "index.d.ts",
    "main": "dist/bundle.min.js",
    "module": "dist/bundle.esm.js",
