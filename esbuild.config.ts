@@ -3,8 +3,11 @@ import path from "node:path";
 import * as esbuild from 'esbuild'
 import {htmlPlugin} from "@craftamap/esbuild-plugin-html";
 
+const
+	dirname = import.meta.dirname;
+
 function getHtmlTemplate(p: string) {
-	const pathToFile = path.resolve(__dirname, p);
+	const pathToFile = path.resolve(dirname, p);
 	return fs.readFileSync(pathToFile, {encoding: "utf-8"});
 }
 
@@ -18,8 +21,8 @@ async function main() {
 		tsconfig: "tsconfig.json",
 		logLevel: "info",
 		alias: {
-			"~core": path.resolve(__dirname, "src", "core"),
-			"~assets": path.resolve(__dirname, "assets"),
+			"~core": path.resolve(dirname, "src", "core"),
+			"~assets": path.resolve(dirname, "assets"),
 		},
 		plugins: [
 			htmlPlugin({
