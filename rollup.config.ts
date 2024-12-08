@@ -3,6 +3,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import alias from "@rollup/plugin-alias";
 import terser from "@rollup/plugin-terser";
+import del from "rollup-plugin-delete";
 
 import pkg from "./package.json" with {type: "json"};
 
@@ -29,12 +30,18 @@ const config = {
 		},
 	],
 	plugins: [
+		del({targets: "dist/*"}),
 		resolve(),
 		commonjs(),
 		terser(),
 		typescript({
 			tsconfig: "./tsconfig.json",
-			exclude: ["src/index.ts", "src/esbuild-api.ts",]
+			exclude: [
+				"src/index.ts",
+				"src/esbuild-api.ts",
+				"src/core/**/*.spec.ts",
+				"src/core/**/spec.ts",
+			]
 		}),
 		alias({
 			entries: [
