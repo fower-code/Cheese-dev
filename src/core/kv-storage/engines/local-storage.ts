@@ -1,4 +1,4 @@
-import {KVStorageEngine} from "~core/kv-storage/engines/interfaces";
+import { KVStorageEngine } from "~core/kv-storage/engines/interfaces";
 
 export default class LocalStorage {
 	public get(key: string): ReturnType<KVStorageEngine["get"]> {
@@ -12,4 +12,4 @@ export default class LocalStorage {
 	public remove(key: string): ReturnType<KVStorageEngine["remove"]> {
 		localStorage.removeItem(key);
 	}
-};
+}
