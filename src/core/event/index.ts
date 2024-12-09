@@ -1,4 +1,4 @@
-import {Handler, HandlerStore} from "~core/event/interfaces";
+import { Handler, HandlerStore } from "~core/event/interfaces";
 
 export { default as streamEvent } from "./stream";
 
