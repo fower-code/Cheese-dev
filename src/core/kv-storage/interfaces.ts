@@ -5,13 +5,9 @@ export interface KVStorageOptions {
 }
 
 export type SerializableVal =
-	SerializablePrimitiveVal |
-	SerializablePrimitiveVal[] |
-	Record<string, SerializablePrimitiveVal> |
-	{ toJSON(): SerializableVal };
+	| SerializablePrimitiveVal
+	| SerializablePrimitiveVal[]
+	| Record<string, SerializablePrimitiveVal>
+	| { toJSON(): SerializableVal };
 
-export type SerializablePrimitiveVal =
-	string |
-	number |
-	boolean |
-	null;
+export type SerializablePrimitiveVal = string | number | boolean | null;
