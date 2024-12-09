@@ -1,4 +1,9 @@
-import { KVStorageEngine, KVStorageOptions, SerializableVal } from "~core/kv-storage/interfaces";
+import {
+	KVStorageEngine,
+	KVStorageOptions,
+	SerializableVal,
+} from "~core/kv-storage/interfaces";
+
 import DefaultEngine from "~core/kv-storage/engines";
 
 export default class KVStorage {
@@ -17,7 +22,7 @@ export default class KVStorage {
 		this.engine.set(key, data);
 	}
 
-	public remove(key:string) {
+	public remove(key: string) {
 		this.engine.remove(key);
 	}
 }
