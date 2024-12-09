@@ -3,3 +3,5 @@ export interface EventEmitterOpts {
 }
 
 export type Handler<T> = (v: T) => unknown;
+
+export type HandlerStore<T> = Map<string, Set<Handler<T>>>;
