@@ -1,7 +1,7 @@
-const jsdoc = require("eslint-plugin-jsdoc");
-const tsdoc = require("eslint-plugin-tsdoc");
-const tsParser = require("@typescript-eslint/parser");
-const tsEslintPlug = require("@typescript-eslint/eslint-plugin");
+import jsdoc from "eslint-plugin-jsdoc";
+import tsdoc from "eslint-plugin-tsdoc";
+import tsParser from "@typescript-eslint/parser";
+import tsEslintPlug from "@typescript-eslint/eslint-plugin";
 
 const config = [
 	jsdoc.configs["flat/recommended"],
@@ -49,4 +49,4 @@ const config = [
 	}
 ];
 
-module.exports = config;
+export default config;
