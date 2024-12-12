@@ -17,7 +17,7 @@
       "test": "jest",
       "fmt:write": "prettier src/core --write",
       "fmt:check": "prettier src/core --check",
-      "prepare": "husky"
+      "hooks:install": "lefthook install"
    },
    "devDependencies": {
       "@craftamap/esbuild-plugin-html": "^0.8.0",
@@ -39,9 +39,8 @@
       "eslint": "^9.14.0",
       "eslint-plugin-jsdoc": "^50.4.3",
       "eslint-plugin-tsdoc": "^0.3.0",
-      "husky": "^9.1.6",
       "jest": "^29.7.0",
-      "pinst": "^3.0.0",
+      "lefthook": "^1.9.1",
       "prettier": "3.3.3",
       "rollup": "^4.21.2",
       "rollup-plugin-delete": "^2.1.0",
