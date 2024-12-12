@@ -22,3 +22,6 @@ pre-commit:
       prettier:
          glob: "*.{ts,md}"
          run: yarn run prettier {staged_files}
+      jest:
+         glob: "*spec.ts"
+         run: yarn run jest {staged_files}
