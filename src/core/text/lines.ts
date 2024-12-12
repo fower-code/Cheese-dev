@@ -14,6 +14,7 @@
  * console.log(result); // ['Hello', 'World']
  */
 export function lines(s: string): string[] {
+
 	return [...linesIter(s)];
 }
 
