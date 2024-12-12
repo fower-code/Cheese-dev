@@ -21,7 +21,7 @@ pre-commit:
          run: yarn eslint {staged_files}
       prettier:
          glob: "*.{ts,md}"
-         run: yarn run prettier {staged_files}
+         run: yarn run fmt:write {staged_files}
       jest:
          glob: "*spec.ts"
          run: yarn run jest {staged_files}
