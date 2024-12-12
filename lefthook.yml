@@ -1,0 +1,15 @@
+pre-commit:
+   parallel: true
+   commands:
+      lint:
+         glob: "*.{ts,js}"
+         run: yarn run lint {staged_files}
+      fmt:
+         glob: "*.{ts,md}"
+         run: yarn run fmt:write {staged_files}
+
+pre-push:
+   commands:
+      test:
+         glob: "*spec.ts"
+         run: yarn run jest {staged_files}
