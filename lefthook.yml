@@ -18,10 +18,16 @@ pre-commit:
    commands:
       eslint:
          glob: "*.{ts,js}"
-         run: yarn eslint {staged_files}
+         run: yarn run lint {staged_files}
       prettier:
          glob: "*.{ts,md}"
          run: yarn run fmt:write {staged_files}
-      jest:
+      test:
          glob: "*spec.ts"
          run: yarn run jest {staged_files}
+
+#pre-push:
+#   commands:
+#      test:
+#         glob: "*spec.ts"
+#         run: yarn run jest {staged_files}
